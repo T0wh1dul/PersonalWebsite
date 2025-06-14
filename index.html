@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Towhidul Islam - Data Analyst</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <script>
+        // Standard Tailwind config
+        tailwind.config = {
+            darkMode: 'class',
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Poppins', sans-serif; }
+        
+        /* Animation for sections fading in on scroll */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Gradient for text elements */
+        .gradient-text {
+            background: linear-gradient(90deg, #3b82f6, #14b8a6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        /* Gradient for profile picture ring */
+        .gradient-ring {
+            border: 4px solid transparent;
+            background-clip: padding-box;
+            border-image: linear-gradient(to right, #3b82f6, #14b8a6) 1;
+        }
+
+        /* Styles for the modal window */
+        #project-modal-overlay { transition: opacity 0.3s ease-in-out; }
+        #project-modal-content { transition: all 0.3s ease-in-out; }
+    </style>
+</head>
+<body class="bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 antialiased">
+
+    <!-- Header -->
+    <header class="fixed w-full z-30 backdrop-blur-lg bg-white/80 dark:bg-slate-900/80 border-b border-slate-200/80 dark:border-white/10">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#home" class="text-2xl font-bold text-blue-500">TI</a>
+            <nav class="hidden md:flex items-center space-x-8 text-slate-800 dark:text-white">
+                <a href="#about" class="hover:text-blue-500 transition-colors duration-300">About</a>
+                <a href="#projects" class="hover:text-blue-500 transition-colors duration-300">Projects</a>
+                <a href="#contact" class="hover:text-blue-500 transition-colors duration-300">Contact</a>
+            </nav>
+            <div class="flex items-center">
+                <button id="theme-toggle" class="text-xl mr-4 focus:outline-none text-slate-800 dark:text-white hover:text-blue-500 transition-colors duration-300">
+                    <i class="fas fa-sun"></i>
+                </button>
+                <a href="mailto:tawheedul578@gmail.com" class="hidden md:block bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-5 rounded-full transition-all duration-300 transform hover:scale-105">Hire Me</a>
+                <button id="mobile-menu-button" class="md:hidden text-2xl ml-4 text-slate-800 dark:text-white">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-2 bg-white/95 dark:bg-slate-800/95 text-slate-800 dark:text-white">
+            <a href="#about" class="block hover:text-blue-500 transition-colors duration-300 py-2">About</a>
+            <a href="#projects" class="block hover:text-blue-500 transition-colors duration-300 py-2">Projects</a>
+            <a href="#contact" class="block hover:text-blue-500 transition-colors duration-300 py-2">Contact</a>
+            <a href="mailto:tawheedul578@gmail.com" class="block bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full text-center mt-2">Hire Me</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="container mx-auto px-6 pt-32 pb-16 flex flex-col md:flex-row items-center min-h-screen">
+            <div class="md:w-1/2 text-center md:text-left">
+                <h1 class="text-4xl md:text-6xl font-bold leading-tight text-slate-800 dark:text-slate-100">Hi, I'm <span class="gradient-text">Towhidul Islam</span></h1>
+                <p class="text-xl md:text-2xl mt-4">A Data Analyst passionate about uncovering insights from data.</p>
+                <div class="mt-8 flex justify-center md:justify-start space-x-4">
+                    <a href="#projects" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-full transition-all duration-300 transform hover:scale-105">View My Work</a>
+                    <a href="link_to_your_resume.pdf" target="_blank" class="border-2 border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white font-bold py-3 px-6 rounded-full transition-colors duration-300">View Resume</a>
+                </div>
+            </div>
+            <div class="md:w-1/2 mt-12 md:mt-0 flex justify-center">
+                <img src="https://i.ibb.co/9hbdwL4/dummy-profile-pic.jpg" alt="Towhidul Islam" class="rounded-full h-64 w-64 md:h-80 md:w-80 object-cover gradient-ring shadow-2xl"/>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-20 px-6 bg-white dark:bg-slate-800 fade-in-up">
+            <div class="container mx-auto">
+                <h2 class="text-3xl font-bold text-center mb-12 gradient-text">About Me</h2>
+                <div class="flex flex-col md:flex-row items-center gap-12">
+                    <div class="md:w-2/3 text-center md:text-left text-lg leading-relaxed">
+                        <p class="mb-4">I am a detail-oriented Data Analyst with a passion for extracting actionable insights from complex datasets. My expertise lies in data visualization, statistical analysis, and predictive modeling.</p>
+                        <p>I thrive in collaborative environments and am committed to helping organizations make data-driven decisions. I am a quick learner and always eager to explore new technologies and methodologies in the ever-evolving field of data analytics.</p>
+                    </div>
+                    <div class="md:w-1/3 w-full">
+                        <div class="bg-slate-100 dark:bg-slate-900 p-6 rounded-lg shadow-lg">
+                            <h3 class="text-xl font-bold mb-4 text-blue-500">Top Skills</h3>
+                            <ul class="space-y-3 text-slate-600 dark:text-slate-300">
+                                <li class="flex items-center"><i class="fas fa-check-circle text-blue-500/80 mr-3"></i> Python (Pandas, Scikit-learn)</li>
+                                <li class="flex items-center"><i class="fas fa-check-circle text-blue-500/80 mr-3"></i> SQL</li>
+                                <li class="flex items-center"><i class="fas fa-check-circle text-blue-500/80 mr-3"></i> Tableau & Power BI</li>
+                                <li class="flex items-center"><i class="fas fa-check-circle text-blue-500/80 mr-3"></i> Statistical Analysis</li>
+                                <li class="flex items-center"><i class="fas fa-check-circle text-blue-500/80 mr-3"></i> IBM Cognos Analytics</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-20 px-6 fade-in-up">
+            <div class="container mx-auto">
+                <h2 class="text-3xl font-bold text-center mb-12 gradient-text">Featured Projects</h2>
+                <div id="project-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Project cards will be dynamically inserted by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 px-6 bg-white dark:bg-slate-800 fade-in-up">
+            <div class="container mx-auto text-center">
+                <h2 class="text-3xl font-bold text-center mb-12 gradient-text">Get In Touch</h2>
+                <p class="mb-8 max-w-xl mx-auto">I'm currently open to new opportunities and collaborations. My inbox is always open, whether you have a question or just want to say hi, I'll get back to you!</p>
+                <a href="mailto:tawheedul578@gmail.com" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-4 px-8 rounded-full text-lg inline-block transition-all duration-300 transform hover:scale-105">Say Hello</a>
+                <div class="mt-12 flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-8">
+                    <a href="https://www.linkedin.com/in/towhidul-islam01/" target="_blank" rel="noopener noreferrer" class="group flex items-center text-lg text-slate-600 dark:text-slate-300 hover:text-blue-500 transition-colors duration-300">
+                        <i class="fab fa-linkedin text-2xl text-slate-400 group-hover:text-blue-500 transition-colors duration-300"></i>
+                        <span class="ml-3">LinkedIn</span>
+                    </a>
+                    <a href="https://github.com/T0wh1dul" target="_blank" rel="noopener noreferrer" class="group flex items-center text-lg text-slate-600 dark:text-slate-300 hover:text-blue-500 transition-colors duration-300">
+                        <i class="fab fa-github text-2xl text-slate-400 group-hover:text-blue-500 transition-colors duration-300"></i>
+                        <span class="ml-3">GitHub</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-8">
+        <div class="container mx-auto px-6 text-center text-slate-500">
+            <p class="mb-2">&copy; 2025 Towhidul Islam. All Rights Reserved.</p>
+            <a href="mailto:tawheedul578@gmail.com" class="hover:text-blue-500 transition-colors duration-300">tawheedul578@gmail.com</a>
+        </div>
+    </footer>
+    
+    <!-- Project Modal -->
+    <div id="project-modal-overlay" class="fixed inset-0 bg-black/70 z-40 hidden opacity-0"></div>
+    <div id="project-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 hidden">
+        <div id="project-modal-content" class="bg-white dark:bg-slate-800 rounded-lg shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto p-6 md:p-8 opacity-0 transform scale-95">
+            <!-- Modal content will be dynamically inserted here -->
+        </div>
+    </div>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- PROJECT DATA ---
+            const projectData = [
+                {
+                    id: 7,
+                    title: "Customer Loyalty BI Dashboard",
+                    shortDescription: "A dynamic dashboard in IBM Cognos Analytics to analyze customer loyalty data and uncover key business insights.",
+                    imageUrl: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop",
+                    technologies: ["IBM Cognos", "BI", "Dashboarding"],
+                    longDescription: "As part of the IBM Business Analyst Professional Certificate, I created a dynamic and interactive data dashboard using IBM Cognos Analytics. This project focused on analyzing customer loyalty program data to uncover key business insights by building a comprehensive multi-page dashboard, creating custom calculations like Margin, and enabling interactive data exploration with strategic filters. This project significantly boosted my skills in transforming raw data into actionable insights for decision-makers.",
+                    liveLink: "https://us3.ca.analytics.ibm.com/bi/?perspective=dashboard&pathRef=.my_folders%2FBusiness%2BIntelligence%2BDashboard%253A%2BCustomer%2BLoyalty%2BInsights%2Bin%2BCognos&action=view&mode=dashboard&subView=model0000019762b90b01_00000000",
+                    liveLinkText: "View Dashboard",
+                    githubLink: "https://www.linkedin.com/posts/towhidul-islam01_datascience-dataviz-analytics-activity-7338911362426822657-N_g3?utm_source=share&utm_medium=member_desktop",
+                    githubLinkText: "View Post",
+                },
+                {
+                    id: 6,
+                    title: "Nashville Housing Data Cleaning",
+                    shortDescription: "A project using SQL to clean and transform raw housing data, making it ready for analysis by addressing inconsistencies and duplicates.",
+                    imageUrl: "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?q=80&w=1974&auto=format&fit=crop",
+                    technologies: ["SQL Server", "Data Cleaning", "Data Transformation"],
+                    longDescription: "This project demonstrates practical SQL techniques for cleaning a real-world dataset of Nashville housing data. The process involved standardizing date formats, populating missing property addresses using self-joins, splitting addresses into individual columns for better usability, standardizing text fields, and removing duplicate records using CTEs and window functions. The result is a clean, reliable dataset ready for advanced analysis and reporting.",
+                    liveLink: "#",
+                    liveLinkText: "View Project",
+                    githubLink: "https://github.com/T0wh1dul/DATA_CLEANING_NASHVILLE_HOUSING.git",
+                },
+                {
+                    id: 5,
+                    title: "Automotive Sales Dashboard",
+                    shortDescription: "An in-depth analysis of car sales data, creating various visualizations and a dashboard using Microsoft Excel.",
+                    imageUrl: "https://dm0qx8t0i9gc9.cloudfront.net/thumbnails/video/Vyh-jcp/videoblocks-animation-of-blue-futuristic-electric-car-blueprint-concept-car-design-3d-render-the-clip-is-loopable_bj71dibkg_thumbnail-1080_01.png",
+                    technologies: ["Microsoft Excel", "Data Visualization", "Dashboarding"],
+                    longDescription: "This project involves an in-depth analysis of car sales data, focusing on creating various visualizations and a dashboard using Microsoft Excel for the Web. The project aims to provide a clear understanding of car sales and profits across different dealer IDs, models, and timeframes. Visualizations include quantity sold by dealer, profit by date and model, and profit by year, all derived from pivot tables and organized across several sheets within the Excel workbook.",
+                    liveLink: "#",
+                    liveLinkText: "View Dashboard",
+                    githubLink: "https://github.com/T0wh1dul/Automotive-Sales-Dashboard",
+                },
+                {
+                    id: 4,
+                    title: "COVID-19 Global Data Analysis",
+                    shortDescription: "An analysis project using SQL and Tableau to explore the global impact of COVID-19, focusing on cases, deaths, and vaccination trends.",
+                    imageUrl: "https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?q=80&w=2070&auto=format&fit=crop",
+                    technologies: ["SQL Server", "Tableau", "Data Analysis"],
+                    longDescription: "This project aims to analyze the global spread and impact of COVID-19 using SQL for data exploration and Tableau for visualization. The main goals include calculating total cases and deaths, identifying countries with the highest death counts and infection rates relative to their population, and analyzing vaccination trends over time. The data was sourced from Our World in Data and processed using SQL Server.",
+                    liveLink: "https://public.tableau.com/app/profile/towhidul.islam8478/viz/COVID19Dashboard_17493884683050/Dashboard1",
+                    liveLinkText: "View Dashboard",
+                    githubLink: "https://github.com/T0wh1dul/Tableau_Portfolio_Project_SQL_Queries",
+                },
+            ];
+
+            // --- THEME MANAGEMENT ---
+            const themeToggleButton = document.getElementById('theme-toggle');
+            const themeIcon = themeToggleButton.querySelector('i');
+            const html = document.documentElement;
+
+            const applyTheme = (theme) => {
+                localStorage.setItem('theme', theme);
+                if (theme === 'light') {
+                    html.classList.remove('dark');
+                    themeIcon.classList.remove('fa-sun');
+                    themeIcon.classList.add('fa-moon');
+                } else {
+                    html.classList.add('dark');
+                    themeIcon.classList.remove('fa-moon');
+                    themeIcon.classList.add('fa-sun');
+                }
+            };
+            
+            const savedTheme = localStorage.getItem('theme');
+            const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const initialTheme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
+            applyTheme(initialTheme);
+            
+            themeToggleButton.addEventListener('click', () => {
+                const currentTheme = html.classList.contains('dark') ? 'dark' : 'light';
+                applyTheme(currentTheme === 'dark' ? 'light' : 'dark');
+            });
+
+            // --- MOBILE MENU ---
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileMenuIcon = mobileMenuButton.querySelector('i');
+            document.querySelectorAll('#mobile-menu a, header a[href^="#"]').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenuIcon.classList.add('fa-bars');
+                    mobileMenuIcon.classList.remove('fa-times');
+                });
+            });
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                mobileMenuIcon.classList.toggle('fa-bars');
+                mobileMenuIcon.classList.toggle('fa-times');
+            });
+
+            // --- SCROLL ANIMATIONS ---
+            const animatedElements = document.querySelectorAll('.fade-in-up');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            animatedElements.forEach(el => observer.observe(el));
+            
+            // --- PROJECT MODAL LOGIC ---
+            const projectGrid = document.getElementById('project-grid');
+            const modalOverlay = document.getElementById('project-modal-overlay');
+            const modal = document.getElementById('project-modal');
+            const modalContent = document.getElementById('project-modal-content');
+
+            // Populate project cards
+            projectData.forEach(project => {
+                const card = document.createElement('div');
+                card.className = "bg-white dark:bg-slate-800 rounded-lg overflow-hidden transform hover:-translate-y-1.5 transition-transform duration-300 shadow-lg hover:shadow-xl cursor-pointer";
+                card.innerHTML = `
+                    <img src="${project.imageUrl}" alt="${project.title}" class="w-full h-48 object-cover"/>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-slate-800 dark:text-slate-100">${project.title}</h3>
+                        <p class="mb-4 h-20 text-slate-600 dark:text-slate-400">${project.shortDescription}</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            ${project.technologies.slice(0, 3).map(tech => `<span class="bg-slate-200 dark:bg-slate-700 text-xs font-semibold px-2.5 py-1 rounded-full text-slate-600 dark:text-slate-300">${tech}</span>`).join('')}
+                        </div>
+                        <span class="font-semibold text-blue-500 hover:underline">View Details <i class="fas fa-arrow-right ml-1"></i></span>
+                    </div>
+                `;
+                card.addEventListener('click', () => openModal(project));
+                projectGrid.appendChild(card);
+            });
+            
+            function openModal(project) {
+                 modalContent.innerHTML = `
+                    <button id="close-modal-btn" class="absolute top-4 right-5 text-2xl text-slate-500 hover:text-slate-800 dark:hover:text-white transition-colors">&times;</button>
+                    <div class="flex flex-col lg:flex-row gap-8">
+                        <div class="lg:w-1/2">
+                            <img src="${project.imageUrl}" alt="${project.title}" class="w-full rounded-lg shadow-lg mb-6"/>
+                            <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                                ${project.liveLink && project.liveLink !== "#" ? `<a href="${project.liveLink}" target="_blank" rel="noopener noreferrer" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-full w-full text-center transition-all duration-300 transform hover:scale-105">${project.liveLinkText || "View Live Project"}</a>` : ''}
+                                ${project.githubLink && project.githubLink !== "#" ? `<a href="${project.githubLink}" target="_blank" rel="noopener noreferrer" class="border-2 border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white font-bold py-3 px-6 rounded-full transition-colors duration-300 w-full text-center">${project.githubLinkText || 'View on GitHub'}</a>` : ''}
+                            </div>
+                        </div>
+                        <div class="lg:w-1/2">
+                            <h1 class="text-3xl lg:text-4xl font-bold mb-4 text-slate-800 dark:text-slate-100">${project.title}</h1>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                ${project.technologies.map(tech => `<span class="bg-slate-200 dark:bg-slate-700 text-xs font-semibold px-2.5 py-1 rounded-full text-slate-600 dark:text-slate-300">${tech}</span>`).join('')}
+                            </div>
+                            <p class="text-lg leading-relaxed text-slate-600 dark:text-slate-400">${project.longDescription}</p>
+                        </div>
+                    </div>
+                 `;
+                 
+                document.body.style.overflow = 'hidden'; // Prevent background scroll
+                modalOverlay.classList.remove('hidden');
+                modal.classList.remove('hidden');
+                setTimeout(() => { // Stagger transition for smooth effect
+                    modalOverlay.classList.remove('opacity-0');
+                    modalContent.classList.remove('opacity-0', 'scale-95');
+                }, 10);
+                 
+                // Attach close event listener using delegation
+                modal.addEventListener('click', handleModalClick);
+            }
+
+            function closeModal() {
+                document.body.style.overflow = ''; // Restore background scroll
+                modalOverlay.classList.add('opacity-0');
+                modalContent.classList.add('opacity-0', 'scale-95');
+                setTimeout(() => {
+                    modalOverlay.classList.add('hidden');
+                    modal.classList.add('hidden');
+                    modal.removeEventListener('click', handleModalClick);
+                }, 300);
+            }
+            
+            // Handle clicks within modal for closing
+            function handleModalClick(e) {
+                if (e.target.id === 'project-modal-overlay' || e.target.closest('#close-modal-btn')) {
+                    closeModal();
+                }
+            }
+            
+            // Close modal with Escape key
+            window.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+                    closeModal();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
