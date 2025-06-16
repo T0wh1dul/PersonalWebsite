@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" class="dark">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +8,9 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Poppins:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
     <script>
         tailwind.config = {
             darkMode: 'class',
@@ -27,43 +30,86 @@
         }
     </script>
     <style>
-        html { scroll-behavior: smooth; }
-        body { font-family: 'Inter', 'sans-serif'; }
-        h1, h2, h3 { font-family: 'Poppins', 'sans-serif'; }
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', 'sans-serif';
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: 'Poppins', 'sans-serif';
+        }
 
         .animated-section {
             opacity: 0;
             transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
+
         .animated-section.visible {
             opacity: 1;
         }
+
         .animated-item {
             opacity: 0;
-            transform: translateY(30px); /* Slightly more travel */
-            transition: opacity 0.7s cubic-bezier(0.165, 0.84, 0.44, 1), /* easeOutQuart */
-                        transform 0.7s cubic-bezier(0.165, 0.84, 0.44, 1);
+            transform: translateY(30px);
+            /* Slightly more travel */
+            transition: opacity 0.7s cubic-bezier(0.165, 0.84, 0.44, 1),
+                /* easeOutQuart */
+                transform 0.7s cubic-bezier(0.165, 0.84, 0.44, 1);
             will-change: opacity, transform;
         }
+
         .animated-section.visible .animated-item {
             opacity: 1;
             transform: translateY(0);
         }
-        .animated-section.visible .animated-item:nth-child(1) { transition-delay: 0.1s; }
-        .animated-section.visible .animated-item:nth-child(2) { transition-delay: 0.2s; }
-        .animated-section.visible .animated-item:nth-child(3) { transition-delay: 0.3s; }
-        .animated-section.visible .animated-item:nth-child(4) { transition-delay: 0.4s; }
-        .animated-section.visible .animated-item:nth-child(5) { transition-delay: 0.5s; }
-        .animated-section.visible .animated-item:nth-child(6) { transition-delay: 0.6s; }
+
+        .animated-section.visible .animated-item:nth-child(1) {
+            transition-delay: 0.1s;
+        }
+
+        .animated-section.visible .animated-item:nth-child(2) {
+            transition-delay: 0.2s;
+        }
+
+        .animated-section.visible .animated-item:nth-child(3) {
+            transition-delay: 0.3s;
+        }
+
+        .animated-section.visible .animated-item:nth-child(4) {
+            transition-delay: 0.4s;
+        }
+
+        .animated-section.visible .animated-item:nth-child(5) {
+            transition-delay: 0.5s;
+        }
+
+        .animated-section.visible .animated-item:nth-child(6) {
+            transition-delay: 0.6s;
+        }
 
         /* --- Animated Gradient Text --- */
         @keyframes gradient-animation {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
         }
+
         .gradient-text {
-            background-image: linear-gradient(to right, #38bdf8, #818cf8, #38bdf8); /* from-sky-400 via-indigo-400 to-sky-400 */
+            background-image: linear-gradient(to right, #38bdf8, #818cf8, #38bdf8);
+            /* from-sky-400 via-indigo-400 to-sky-400 */
             background-size: 200% auto;
             animation: gradient-animation 4s ease-in-out infinite;
             -webkit-background-clip: text;
@@ -76,23 +122,48 @@
         .hero-glow {
             animation: pulse-glow 5s ease-in-out infinite;
         }
+
         .hero-rotate {
             animation: spin 30s linear infinite;
         }
+
         @keyframes pulse-glow {
-            0%, 100% { transform: scale(1); opacity: 0.4; }
-            50% { transform: scale(1.05); opacity: 0.5; }
+
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 0.4;
+            }
+
+            50% {
+                transform: scale(1.05);
+                opacity: 0.5;
+            }
         }
+
         @keyframes spin {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
         }
 
         /* Hero content entrance animations */
         @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
+
         .hero-content-animate {
             opacity: 0;
             animation-name: fadeInUp;
@@ -101,55 +172,109 @@
             animation-fill-mode: forwards;
             will-change: opacity, transform;
         }
+
         /* Stagger delays for hero content */
-        #home .hero-h1 { animation-delay: 0.2s; }
-        #home .hero-p { animation-delay: 0.4s; }
-        #home .hero-btn-1 { animation-delay: 0.6s; }
-        #home .hero-btn-2 { animation-delay: 0.7s; }
-        #home .hero-img { animation-delay: 0.5s; }
+        #home .hero-h1 {
+            animation-delay: 0.2s;
+        }
+
+        #home .hero-p {
+            animation-delay: 0.4s;
+        }
+
+        #home .hero-btn-1 {
+            animation-delay: 0.6s;
+        }
+
+        #home .hero-btn-2 {
+            animation-delay: 0.7s;
+        }
+
+        #home .hero-img {
+            animation-delay: 0.5s;
+        }
 
         /* Hero background gradient animations */
-        .hero-bg-gradient-1, .hero-bg-gradient-2 {
+        .hero-bg-gradient-1,
+        .hero-bg-gradient-2 {
             will-change: transform, opacity;
         }
+
         .hero-bg-gradient-1 {
             animation: gentleDriftOne 25s ease-in-out infinite alternate;
         }
+
         .hero-bg-gradient-2 {
             animation: gentleDriftTwo 30s ease-in-out infinite alternate;
         }
+
         @keyframes gentleDriftOne {
-            0% { transform: translate(0, 0) scale(1); opacity: 0.15; }
-            50% { transform: translate(20px, 10px) scale(1.1); opacity: 0.2; }
-            100% { transform: translate(-10px, -15px) scale(0.9); opacity: 0.12; }
+            0% {
+                transform: translate(0, 0) scale(1);
+                opacity: 0.15;
+            }
+
+            50% {
+                transform: translate(20px, 10px) scale(1.1);
+                opacity: 0.2;
+            }
+
+            100% {
+                transform: translate(-10px, -15px) scale(0.9);
+                opacity: 0.12;
+            }
         }
+
         @keyframes gentleDriftTwo {
-            0% { transform: translate(0, 0) scale(1); opacity: 0.1; }
-            50% { transform: translate(-15px, 20px) scale(1.1); opacity: 0.15; }
-            100% { transform: translate(10px, -10px) scale(0.9); opacity: 0.08; }
+            0% {
+                transform: translate(0, 0) scale(1);
+                opacity: 0.1;
+            }
+
+            50% {
+                transform: translate(-15px, 20px) scale(1.1);
+                opacity: 0.15;
+            }
+
+            100% {
+                transform: translate(10px, -10px) scale(0.9);
+                opacity: 0.08;
+            }
         }
 
 
-        #project-modal-overlay { transition: opacity 0.3s ease-out; }
-        #project-modal-content { transition: all 0.3s ease-out; will-change: opacity, transform; }
+        #project-modal-overlay {
+            transition: opacity 0.3s ease-out;
+        }
+
+        #project-modal-content {
+            transition: all 0.3s ease-out;
+            will-change: opacity, transform;
+        }
 
         .project-card {
-             will-change: transform, box-shadow; /* For card hover lift and shadow change */
+            will-change: transform, box-shadow;
+            /* For card hover lift and shadow change */
         }
+
         .project-card .group-hover-arrow {
             transition: transform 0.3s ease-out;
             will-change: transform;
         }
+
         .project-card:hover .group-hover-arrow {
             transform: translateX(4px);
         }
+
         .project-card .group-hover-image-scale {
             transition: transform 0.5s ease-out;
             will-change: transform;
         }
+
         .project-card:hover .group-hover-image-scale {
             transform: scale(1.1);
         }
+
         .line-clamp-2 {
             overflow: hidden;
             display: -webkit-box;
@@ -161,31 +286,48 @@
 
 <body class="antialiased font-sans bg-slate-50 dark:bg-black text-slate-800 dark:text-slate-200">
 
-    <header class="fixed w-full z-50 backdrop-blur-md bg-slate-50/80 dark:bg-black/70 border-b border-slate-200/80 dark:border-white/10">
+    <header
+        class="fixed w-full z-50 backdrop-blur-md bg-slate-50/80 dark:bg-black/70 border-b border-slate-200/80 dark:border-white/10">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#home" class="text-2xl font-bold gradient-text transition-transform duration-300 hover:scale-110">TI</a>
+            <a href="#home"
+                class="text-2xl font-bold gradient-text transition-transform duration-300 hover:scale-110">TI</a>
             <nav class="hidden md:flex items-center space-x-8">
-                <a href="#about" class="nav-link text-slate-700 dark:text-slate-300 hover:text-indigo-500 dark:hover:text-indigo-400 transition-colors duration-300">About</a>
-                <a href="#projects" class="nav-link text-slate-700 dark:text-slate-300 hover:text-indigo-500 dark:hover:text-indigo-400 transition-colors duration-300">Projects</a>
-                <a href="#contact" class="nav-link text-slate-700 dark:text-slate-300 hover:text-indigo-500 dark:hover:text-indigo-400 transition-colors duration-300">Contact</a>
+                <a href="#about"
+                    class="nav-link text-slate-700 dark:text-slate-300 hover:text-indigo-500 dark:hover:text-indigo-400 transition-colors duration-300">About</a>
+                <a href="#projects"
+                    class="nav-link text-slate-700 dark:text-slate-300 hover:text-indigo-500 dark:hover:text-indigo-400 transition-colors duration-300">Projects</a>
+                <a href="#contact"
+                    class="nav-link text-slate-700 dark:text-slate-300 hover:text-indigo-500 dark:hover:text-indigo-400 transition-colors duration-300">Contact</a>
             </nav>
             <div class="flex items-center gap-4">
-                <button id="theme-toggle" class="p-2 rounded-full text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800 transition-all duration-300 active:scale-90 active:rotate-90" aria-label="Toggle theme">
+                <button id="theme-toggle"
+                    class="p-2 rounded-full text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800 transition-all duration-300 active:scale-90 active:rotate-90"
+                    aria-label="Toggle theme">
                     <!-- Icon is injected by JS -->
                 </button>
-                <a href="mailto:tawheedul578@gmail.com" class="hidden md:block bg-gradient-to-r from-sky-500 to-indigo-600 text-white font-bold py-2 px-6 rounded-full shadow-lg transition-all duration-300 ease-in-out hover:scale-105 hover:-translate-y-0.5 hover:shadow-xl active:scale-95">Hire Me</a>
-                <button id="mobile-menu-button" class="md:hidden text-2xl text-slate-700 dark:text-slate-300 transition-transform active:scale-90" aria-label="Toggle menu">
+                <a href="mailto:tawheedul578@gmail.com"
+                    class="hidden md:block bg-gradient-to-r from-sky-500 to-indigo-600 text-white font-bold py-2 px-6 rounded-full shadow-lg transition-all duration-300 ease-in-out hover:scale-105 hover:-translate-y-0.5 hover:shadow-xl active:scale-95">Hire
+                    Me</a>
+                <button id="mobile-menu-button"
+                    class="md:hidden text-2xl text-slate-700 dark:text-slate-300 transition-transform active:scale-90"
+                    aria-label="Toggle menu">
                     <!-- Icon is injected by JS -->
                 </button>
             </div>
         </div>
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="md:hidden absolute top-full left-0 w-full bg-slate-50/95 dark:bg-black/90 shadow-lg overflow-hidden transition-all duration-300 ease-in-out max-h-0 opacity-0">
+        <div id="mobile-menu"
+            class="md:hidden absolute top-full left-0 w-full bg-slate-50/95 dark:bg-black/90 shadow-lg overflow-hidden transition-all duration-300 ease-in-out max-h-0 opacity-0">
             <div class="flex flex-col items-center space-y-6 p-8">
-                <a href="#about" class="nav-link text-xl text-slate-700 dark:text-slate-300 hover:text-indigo-500">About</a>
-                <a href="#projects" class="nav-link text-xl text-slate-700 dark:text-slate-300 hover:text-indigo-500">Projects</a>
-                <a href="#contact" class="nav-link text-xl text-slate-700 dark:text-slate-300 hover:text-indigo-500">Contact</a>
-                <a href="mailto:tawheedul578@gmail.com" class="bg-gradient-to-r from-sky-500 to-indigo-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-transform hover:scale-105 active:scale-95">Hire Me</a>
+                <a href="#about"
+                    class="nav-link text-xl text-slate-700 dark:text-slate-300 hover:text-indigo-500">About</a>
+                <a href="#projects"
+                    class="nav-link text-xl text-slate-700 dark:text-slate-300 hover:text-indigo-500">Projects</a>
+                <a href="#contact"
+                    class="nav-link text-xl text-slate-700 dark:text-slate-300 hover:text-indigo-500">Contact</a>
+                <a href="mailto:tawheedul578@gmail.com"
+                    class="bg-gradient-to-r from-sky-500 to-indigo-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-transform hover:scale-105 active:scale-95">Hire
+                    Me</a>
             </div>
         </div>
     </header>
@@ -193,23 +335,40 @@
     <main>
         <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden">
             <div class="absolute inset-0 z-0"> <!-- Container for background gradients -->
-                <div class="absolute bottom-0 left-[-20%] right-[-20%] top-[-10%] h-[500px] w-[500px] rounded-full bg-[radial-gradient(circle_farthest-side,rgba(14,165,233,1),rgba(255,255,255,0))] hero-bg-gradient-1"></div>
-                <div class="absolute bottom-[-40%] right-[20%] top-[-10%] h-[500px] w-[500px] rounded-full bg-[radial-gradient(circle_farthest-side,rgba(99,102,241,1),rgba(255,255,255,0))] hero-bg-gradient-2"></div>
+                <div
+                    class="absolute bottom-0 left-[-20%] right-[-20%] top-[-10%] h-[500px] w-[500px] rounded-full bg-[radial-gradient(circle_farthest-side,rgba(14,165,233,1),rgba(255,255,255,0))] hero-bg-gradient-1">
+                </div>
+                <div
+                    class="absolute bottom-[-40%] right-[20%] top-[-10%] h-[500px] w-[500px] rounded-full bg-[radial-gradient(circle_farthest-side,rgba(99,102,241,1),rgba(255,255,255,0))] hero-bg-gradient-2">
+                </div>
             </div>
             <div class="container mx-auto px-6 z-10">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                     <div class="text-center md:text-left">
-                        <h1 class="text-5xl md:text-7xl font-extrabold leading-tight text-slate-900 dark:text-slate-50 hero-content-animate hero-h1">Hi, I'm <span class="gradient-text">Towhidul Islam</span></h1>
-                        <p class="text-xl md:text-2xl mt-6 text-slate-600 dark:text-slate-400 max-w-xl mx-auto md:mx-0 hero-content-animate hero-p">Currently exploring the intersection of business and data, learning how to transform numbers into narrative</p>
+                        <h1
+                            class="text-4xl sm:text-5xl lg:text-7xl font-extrabold leading-tight text-slate-900 dark:text-slate-50 hero-content-animate hero-h1">
+                            Hi, I'm <span class="gradient-text">Towhidul Islam</span></h1>
+                        <p
+                            class="text-xl md:text-2xl mt-6 text-slate-600 dark:text-slate-400 max-w-xl mx-auto md:mx-0 hero-content-animate hero-p">
+                            Currently exploring the intersection of business and data, learning how to transform numbers
+                            into narrative</p>
                         <div class="mt-10 flex flex-col sm:flex-row justify-center md:justify-start gap-4">
-                            <a href="#projects" class="hero-content-animate hero-btn-1 inline-block bg-gradient-to-r from-sky-500 to-indigo-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-all duration-300 ease-out hover:scale-105 hover:-translate-y-0.5 hover:shadow-[0_10px_20px_-10px_rgba(79,70,229,0.4)] active:scale-95">View My Work</a>
-                            <a href="./Asset/Towhidul-Islam-Resume.pdf" target="_blank" class="hero-content-animate hero-btn-2 inline-block border-2 border-indigo-400 text-indigo-400 font-bold py-3 px-8 rounded-full transition-all duration-300 ease-out hover:scale-105 hover:-translate-y-0.5 hover:bg-indigo-500 hover:text-white active:scale-95">View Resume</a>
+                            <a href="#projects"
+                                class="hero-content-animate hero-btn-1 inline-block bg-gradient-to-r from-sky-500 to-indigo-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-all duration-300 ease-out hover:scale-105 hover:-translate-y-0.5 hover:shadow-[0_10px_20px_-10px_rgba(79,70,229,0.4)] active:scale-95">View
+                                My Work</a>
+                            <a href="./Asset/Towhidul-Islam-Resume.pdf" target="_blank"
+                                class="hero-content-animate hero-btn-2 inline-block border-2 border-indigo-400 text-indigo-400 font-bold py-3 px-8 rounded-full transition-all duration-300 ease-out hover:scale-105 hover:-translate-y-0.5 hover:bg-indigo-500 hover:text-white active:scale-95">View
+                                Resume</a>
                         </div>
                     </div>
-                    <div class="relative flex justify-center">
-                        <div class="absolute inset-0 rounded-full bg-gradient-to-r from-sky-400 to-indigo-600 blur-2xl hero-glow"></div>
+                    <div class="relative flex justify-center mt-8 md:mt-0">
+                        <div
+                            class="absolute inset-0 rounded-full bg-gradient-to-r from-sky-400 to-indigo-600 blur-2xl hero-glow">
+                        </div>
                         <div class="absolute inset-0 rounded-full border-2 border-indigo-500/50 hero-rotate"></div>
-                        <img src="https://raw.githubusercontent.com/T0wh1dul/Portfolio/main/src/assets/Towhid.jpg" alt="Towhidul Islam" class="relative z-10 rounded-full h-64 w-64 md:h-80 md:w-80 object-cover shadow-2xl hero-content-animate hero-img" />
+                        <img src="https://raw.githubusercontent.com/T0wh1dul/Portfolio/main/src/assets/Towhid.jpg"
+                            alt="Towhidul Islam"
+                            class="relative z-10 rounded-full h-64 w-64 md:h-80 md:w-80 object-cover shadow-2xl hero-content-animate hero-img" />
                     </div>
                 </div>
             </div>
@@ -220,11 +379,18 @@
                 <h2 class="text-4xl font-bold text-center mb-16 gradient-text animated-item">About Me</h2>
                 <div class="grid md:grid-cols-5 gap-12 items-center">
                     <div class="md:col-span-3 text-lg text-slate-600 dark:text-slate-400 leading-relaxed animated-item">
-                        <p class="mb-4">My background is at the intersection of business and technology, grounded in a BBA in Management Information Systems. This foundation gives me a robust understanding of core business operations—including a professional-level grasp of finance—alongside the technical skills for effective data analysis.</p>
-                        <p>My project experience showcases my ability to use tools like SQL, Tableau, and Power BI to create targeted dashboards and insights. I am an enthusiastic and fast learner, continuously growing my capabilities through ongoing IBM professional certifications, and I am keen to apply my foundational knowledge in a challenging and dynamic business environment.</p>
+                        <p class="mb-4">My background is at the intersection of business and technology, grounded in a
+                            BBA in Management Information Systems. This foundation gives me a robust understanding of
+                            core business operations—including a professional-level grasp of finance—alongside the
+                            technical skills for effective data analysis.</p>
+                        <p>My project experience showcases my ability to use tools like SQL, Tableau, and Power BI to
+                            create targeted dashboards and insights. I am an enthusiastic and fast learner, continuously
+                            growing my capabilities through ongoing IBM professional certifications, and I am keen to
+                            apply my foundational knowledge in a challenging and dynamic business environment.</p>
                     </div>
                     <div class="md:col-span-2 animated-item">
-                        <div class="bg-white dark:bg-black/50 p-6 rounded-xl shadow-lg border border-slate-200 dark:border-slate-800">
+                        <div
+                            class="bg-white dark:bg-black/50 p-6 rounded-xl shadow-lg border border-slate-200 dark:border-slate-800">
                             <h3 class="text-xl font-bold mb-4 text-indigo-500 dark:text-indigo-400">Top Skills</h3>
                             <ul id="skills-list" class="space-y-3">
                                 <!-- Skills are injected by JS -->
@@ -247,104 +413,127 @@
         <section id="contact" class="py-24 sm:py-32 px-6 bg-slate-100 dark:bg-slate-900 animated-section">
             <div class="container mx-auto text-center">
                 <h2 class="text-4xl font-bold text-center mb-16 gradient-text animated-item">Get In Touch</h2>
-                <p class="mb-10 max-w-2xl mx-auto text-slate-600 dark:text-slate-400 text-lg animated-item">I'm currently open to new opportunities and collaborations. My inbox is always open, so feel free to reach out!</p>
+                <p class="mb-10 max-w-2xl mx-auto text-slate-600 dark:text-slate-400 text-lg animated-item">I'm
+                    currently open to new opportunities and collaborations. My inbox is always open, so feel free to
+                    reach out!</p>
                 <div class="animated-item">
-                     <a href="mailto:tawheedul578@gmail.com" class="inline-block bg-gradient-to-r from-sky-500 to-indigo-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-all duration-300 ease-out hover:scale-105 hover:-translate-y-0.5 hover:shadow-[0_10px_20px_-10px_rgba(79,70,229,0.4)] active:scale-95">Say Hello</a>
+                    <a href="mailto:tawheedul578@gmail.com"
+                        class="inline-block bg-gradient-to-r from-sky-500 to-indigo-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-all duration-300 ease-out hover:scale-105 hover:-translate-y-0.5 hover:shadow-[0_10px_20px_-10px_rgba(79,70,229,0.4)] active:scale-95">Say
+                        Hello</a>
                 </div>
-                <div class="mt-16 flex flex-col sm:flex-row items-center justify-center gap-8 text-slate-500 dark:text-slate-400 animated-item">
-                    <a href="https://www.linkedin.com/in/towhidul-islam01/" target="_blank" rel="noopener noreferrer" class="group flex items-center text-lg hover:text-indigo-500 dark:hover:text-indigo-400 transition-all duration-300 hover:-translate-y-0.5">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3 transition-colors group-hover:text-indigo-500"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect width="4" height="12" x="2" y="9"></rect><circle cx="4" cy="4" r="2"></circle></svg>
-                         LinkedIn
+                <div
+                    class="mt-16 flex flex-col sm:flex-row items-center justify-center gap-8 text-slate-500 dark:text-slate-400 animated-item">
+                    <a href="https://www.linkedin.com/in/towhidul-islam01/" target="_blank" rel="noopener noreferrer"
+                        class="group flex items-center text-lg hover:text-indigo-500 dark:hover:text-indigo-400 transition-all duration-300 hover:-translate-y-0.5">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="mr-3 transition-colors group-hover:text-indigo-500">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
+                            </path>
+                            <rect width="4" height="12" x="2" y="9"></rect>
+                            <circle cx="4" cy="4" r="2"></circle>
+                        </svg>
+                        LinkedIn
                     </a>
-                    <a href="https://github.com/T0wh1dul" target="_blank" rel="noopener noreferrer" class="group flex items-center text-lg hover:text-indigo-500 dark:hover:text-indigo-400 transition-all duration-300 hover:-translate-y-0.5">
-                       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3 transition-colors group-hover:text-indigo-500"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                    <a href="https://github.com/T0wh1dul" target="_blank" rel="noopener noreferrer"
+                        class="group flex items-center text-lg hover:text-indigo-500 dark:hover:text-indigo-400 transition-all duration-300 hover:-translate-y-0.5">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="mr-3 transition-colors group-hover:text-indigo-500">
+                            <path
+                                d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                            </path>
+                        </svg>
                         GitHub
                     </a>
                 </div>
             </div>
         </section>
     </main>
-    
+
     <footer class="py-8 bg-slate-50 dark:bg-black border-t border-slate-200 dark:border-slate-800">
         <div class="container mx-auto px-6">
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-x-6 gap-y-2 text-center text-sm text-slate-500 dark:text-slate-400">
+            <div
+                class="flex flex-col sm:flex-row items-center justify-center gap-x-6 gap-y-2 text-center text-sm text-slate-500 dark:text-slate-400">
                 <p id="copyright-year">© 2025 Towhidul Islam</p> <!-- Added ID for JS targeting -->
                 <span class="hidden sm:inline">|</span>
-                <a href="mailto:tawheedul578@gmail.com" class="hover:text-sky-500 dark:hover:text-sky-400 transition-colors">tawheedul578@gmail.com</a>
+                <a href="mailto:tawheedul578@gmail.com"
+                    class="hover:text-sky-500 dark:hover:text-sky-400 transition-colors">tawheedul578@gmail.com</a>
             </div>
         </div>
     </footer>
-    
+
     <div id="project-modal-overlay" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[99] hidden opacity-0"></div>
     <div id="project-modal" class="fixed inset-0 z-[100] flex items-center justify-center p-4 hidden">
-        <div id="project-modal-content" class="bg-white dark:bg-slate-900 rounded-xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto p-6 md:p-8 relative border border-slate-200 dark:border-slate-800 opacity-0 transform scale-95">
+        <div id="project-modal-content"
+            class="bg-white dark:bg-slate-900 rounded-xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto p-6 md:p-8 relative border border-slate-200 dark:border-slate-800 opacity-0 transform scale-95">
             <!-- Modal content is injected by JS -->
         </div>
     </div>
 
     <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const ICONS = {
-            sun: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>`,
-            moon: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>`,
-            menu: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>`,
-            x: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>`,
-            checkCircle: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-indigo-400/80 mr-3 flex-shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>`,
-            arrowRight: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-1 group-hover-arrow"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>`
-        };
+        document.addEventListener('DOMContentLoaded', () => {
+            const ICONS = {
+                sun: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>`,
+                moon: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>`,
+                menu: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>`,
+                x: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>`,
+                checkCircle: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-indigo-400/80 mr-3 flex-shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>`,
+                arrowRight: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-1 group-hover-arrow"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>`
+            };
 
-        const PROJECT_DATA = [
-            { id: 8, title: "Data Professional Survey Insights", shortDescription: "An interactive Power BI dashboard analyzing key trends from a survey of data professionals, covering demographics, satisfaction, and popular technologies.", imageUrl: "https://raw.githubusercontent.com/T0wh1dul/Data-Professional-Survey-Dashboard/main/Screenshot%202025-06-15%20133034.png", technologies: ["Power BI", "Power Query", "DAX"], longDescription: "This project involved creating an interactive dashboard using Power BI to analyze the 'Data Professional Survey' dataset. Raw data was cleaned and transformed using Power Query, with custom calculations performed using DAX. The resulting dashboard visualizes key insights into the data industry, including respondent demographics, job satisfaction levels, the popularity of programming languages like Python, and the perceived difficulty of breaking into the field. The dashboard effectively translates complex survey data into clear, actionable insights through various charts, KPIs, and interactive maps.", liveLink: "https://app.powerbi.com/view?r=eyJrIjoiYTMwM2Q1MjMtYmYwMy00YjYyLWIxMjctN2UzMDIxMGE1YWE4IiwidCI6IjNkNjIzOTEwLTk4Y2QtNDhlMS1iYTY3LTU0ZDE1YjA3YmU2OCIsImMiOjl9", liveLinkText: "View Dashboard", githubLink: "https://github.com/T0wh1dul/Data-Professional-Survey-Dashboard.git", githubLinkText: "View on GitHub" },
-            { id: 4, title: "COVID-19 Global Data Analysis", shortDescription: "An analysis project using SQL and Tableau to explore the global impact of COVID-19, focusing on cases, deaths, and vaccination trends.", imageUrl: "https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?q=80&w=2070&auto=format&fit=crop", technologies: ["SQL Server", "Tableau", "Data Analysis"], longDescription: "This project aims to analyze the global spread and impact of COVID-19 using SQL for data exploration and Tableau for visualization. The main goals include calculating total cases and deaths, identifying countries with the highest death counts and infection rates relative to their population, and analyzing vaccination trends over time. The data was sourced from Our World in Data and processed using SQL Server.", liveLink: "https://public.tableau.com/app/profile/towhidul.islam8478/viz/COVID19Dashboard_17493884683050/Dashboard1", liveLinkText: "View Dashboard", githubLink: "https://github.com/T0wh1dul/Tableau_Portfolio_Project_SQL_Queries" },
-            { id: 6, title: "Nashville Housing Data Cleaning", shortDescription: "A project using SQL to clean and transform raw housing data, making it ready for analysis by addressing inconsistencies and duplicates.", imageUrl: "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?q=80&w=1974&auto=format&fit=crop", technologies: ["SQL Server", "Data Cleaning", "Data Transformation"], longDescription: "This project demonstrates practical SQL techniques for cleaning a real-world dataset of Nashville housing data. The process involved standardizing date formats, populating missing property addresses using self-joins, splitting addresses into individual columns for better usability, standardizing text fields, and removing duplicate records using CTEs and window functions. The result is a clean, reliable dataset ready for advanced analysis and reporting.", githubLink: "https://github.com/T0wh1dul/DATA_CLEANING_NASHVILLE_HOUSING.git" },
-            { id: 7, title: "Customer Loyalty BI Dashboard", shortDescription: "A dynamic dashboard in IBM Cognos Analytics to analyze customer loyalty data and uncover key business insights.", imageUrl: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop", technologies: ["IBM Cognos", "BI", "Dashboarding"], longDescription: "As part of the IBM Business Analyst Professional Certificate, I created a dynamic and interactive data dashboard using IBM Cognos Analytics. This project focused on analyzing customer loyalty program data to uncover key business insights by building a comprehensive multi-page dashboard, creating custom calculations like Margin, and enabling interactive data exploration with strategic filters. This project significantly boosted my skills in transforming raw data into actionable insights for decision-makers.", liveLink: "https://us3.ca.analytics.ibm.com/bi/?perspective=dashboard&pathRef=.my_folders%2FBusiness%2BIntelligence%2BDashboard%253A%2BCustomer%2BLoyalty%2BInsights%2Bin%2BCognos&action=view&mode=dashboard&subView=model0000019762b90b01_00000000", liveLinkText: "View Dashboard", githubLink: "https://www.linkedin.com/posts/towhidul-islam01_datascience-dataviz-analytics-activity-7338911362426822657-N_g3?utm_source=share&utm_medium=member_desktop", githubLinkText: "View Post" },
-            { id: 5, title: "Automotive Sales Dashboard", shortDescription: "An in-depth analysis of car sales data, creating various visualizations and a dashboard using Microsoft Excel.", imageUrl: "https://dm0qx8t0i9gc9.cloudfront.net/thumbnails/video/Vyh-jcp/videoblocks-animation-of-blue-futuristic-electric-car-blueprint-concept-car-design-3d-render-the-clip-is-loopable_bj71dibkg_thumbnail-1080_01.png", technologies: ["Microsoft Excel", "Data Visualization", "Dashboarding"], longDescription: "This project involves an in-depth analysis of car sales data, focusing on creating various visualizations and a dashboard using Microsoft Excel for the Web. The project aims to provide a clear understanding of car sales and profits across different dealer IDs, models, and timeframes. Visualizations include quantity sold by dealer, profit by date and model, and profit by year, all derived from pivot tables and organized across several sheets within the Excel workbook.", githubLink: "https://github.com/T0wh1dul/Automotive-Sales-Dashboard" }
-        ];
+            const PROJECT_DATA = [
+                { id: 8, title: "Data Professional Survey Insights", shortDescription: "An interactive Power BI dashboard analyzing key trends from a survey of data professionals, covering demographics, satisfaction, and popular technologies.", imageUrl: "https://raw.githubusercontent.com/T0wh1dul/Data-Professional-Survey-Dashboard/main/Screenshot%202025-06-15%20133034.png", technologies: ["Power BI", "Power Query", "DAX"], longDescription: "This project involved creating an interactive dashboard using Power BI to analyze the 'Data Professional Survey' dataset. Raw data was cleaned and transformed using Power Query, with custom calculations performed using DAX. The resulting dashboard visualizes key insights into the data industry, including respondent demographics, job satisfaction levels, the popularity of programming languages like Python, and the perceived difficulty of breaking into the field. The dashboard effectively translates complex survey data into clear, actionable insights through various charts, KPIs, and interactive maps.", liveLink: "https://app.powerbi.com/view?r=eyJrIjoiYTMwM2Q1MjMtYmYwMy00YjYyLWIxMjctN2UzMDIxMGE1YWE4IiwidCI6IjNkNjIzOTEwLTk4Y2QtNDhlMS1iYTY3LTU0ZDE1YjA3YmU2OCIsImMiOjl9", liveLinkText: "View Dashboard", githubLink: "https://github.com/T0wh1dul/Data-Professional-Survey-Dashboard.git", githubLinkText: "View on GitHub" },
+                { id: 4, title: "COVID-19 Global Data Analysis", shortDescription: "An analysis project using SQL and Tableau to explore the global impact of COVID-19, focusing on cases, deaths, and vaccination trends.", imageUrl: "https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?q=80&w=2070&auto=format&fit=crop", technologies: ["SQL Server", "Tableau", "Data Analysis"], longDescription: "This project aims to analyze the global spread and impact of COVID-19 using SQL for data exploration and Tableau for visualization. The main goals include calculating total cases and deaths, identifying countries with the highest death counts and infection rates relative to their population, and analyzing vaccination trends over time. The data was sourced from Our World in Data and processed using SQL Server.", liveLink: "https://public.tableau.com/app/profile/towhidul.islam8478/viz/COVID19Dashboard_17493884683050/Dashboard1", liveLinkText: "View Dashboard", githubLink: "https://github.com/T0wh1dul/Tableau_Portfolio_Project_SQL_Queries" },
+                { id: 6, title: "Nashville Housing Data Cleaning", shortDescription: "A project using SQL to clean and transform raw housing data, making it ready for analysis by addressing inconsistencies and duplicates.", imageUrl: "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?q=80&w=1974&auto=format&fit=crop", technologies: ["SQL Server", "Data Cleaning", "Data Transformation"], longDescription: "This project demonstrates practical SQL techniques for cleaning a real-world dataset of Nashville housing data. The process involved standardizing date formats, populating missing property addresses using self-joins, splitting addresses into individual columns for better usability, standardizing text fields, and removing duplicate records using CTEs and window functions. The result is a clean, reliable dataset ready for advanced analysis and reporting.", githubLink: "https://github.com/T0wh1dul/DATA_CLEANING_NASHVILLE_HOUSING.git" },
+                { id: 7, title: "Customer Loyalty BI Dashboard", shortDescription: "A dynamic dashboard in IBM Cognos Analytics to analyze customer loyalty data and uncover key business insights.", imageUrl: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop", technologies: ["IBM Cognos", "BI", "Dashboarding"], longDescription: "As part of the IBM Business Analyst Professional Certificate, I created a dynamic and interactive data dashboard using IBM Cognos Analytics. This project focused on analyzing customer loyalty program data to uncover key business insights by building a comprehensive multi-page dashboard, creating custom calculations like Margin, and enabling interactive data exploration with strategic filters. This project significantly boosted my skills in transforming raw data into actionable insights for decision-makers.", liveLink: "https://us3.ca.analytics.ibm.com/bi/?perspective=dashboard&pathRef=.my_folders%2FBusiness%2BIntelligence%2BDashboard%253A%2BCustomer%2BLoyalty%2BInsights%2Bin%2BCognos&action=view&mode=dashboard&subView=model0000019762b90b01_00000000", liveLinkText: "View Dashboard", githubLink: "https://www.linkedin.com/posts/towhidul-islam01_datascience-dataviz-analytics-activity-7338911362426822657-N_g3?utm_source=share&utm_medium=member_desktop", githubLinkText: "View Post" },
+                { id: 5, title: "Automotive Sales Dashboard", shortDescription: "An in-depth analysis of car sales data, creating various visualizations and a dashboard using Microsoft Excel.", imageUrl: "https://dm0qx8t0i9gc9.cloudfront.net/thumbnails/video/Vyh-jcp/videoblocks-animation-of-blue-futuristic-electric-car-blueprint-concept-car-design-3d-render-the-clip-is-loopable_bj71dibkg_thumbnail-1080_01.png", technologies: ["Microsoft Excel", "Data Visualization", "Dashboarding"], longDescription: "This project involves an in-depth analysis of car sales data, focusing on creating various visualizations and a dashboard using Microsoft Excel for the Web. The project aims to provide a clear understanding of car sales and profits across different dealer IDs, models, and timeframes. Visualizations include quantity sold by dealer, profit by date and model, and profit by year, all derived from pivot tables and organized across several sheets within the Excel workbook.", githubLink: "https://github.com/T0wh1dul/Automotive-Sales-Dashboard" }
+            ];
 
-        const TOP_SKILLS = [ "SQL & Data Transformation", "Power BI & Tableau", "Python (Pandas)", "Business & Financial Analysis", "IBM Cognos Analytics" ];
-        
-        const themeToggleButton = document.getElementById('theme-toggle');
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const skillsList = document.getElementById('skills-list');
-        const projectGrid = document.getElementById('project-grid');
-        const modalOverlay = document.getElementById('project-modal-overlay');
-        const modal = document.getElementById('project-modal');
-        const modalContent = document.getElementById('project-modal-content');
-        const copyrightYearElement = document.getElementById('copyright-year');
-        const html = document.documentElement;
+            const TOP_SKILLS = ["SQL & Data Transformation", "Power BI & Tableau", "Python (Pandas)", "Business & Financial Analysis", "IBM Cognos Analytics"];
 
-        function applyTheme(theme) {
-            localStorage.setItem('theme', theme);
-            if (theme === 'dark') {
-                html.classList.add('dark');
-                if (themeToggleButton) themeToggleButton.innerHTML = ICONS.sun;
-            } else {
-                html.classList.remove('dark');
-                if (themeToggleButton) themeToggleButton.innerHTML = ICONS.moon;
-            }
-        }
-        
-        function toggleMobileMenu() {
-            const isMenuOpen = mobileMenu.classList.contains('opacity-100');
-            if (isMenuOpen) {
-                mobileMenu.classList.remove('max-h-96', 'opacity-100');
-                mobileMenu.classList.add('max-h-0', 'opacity-0');
-                if (mobileMenuButton) mobileMenuButton.innerHTML = ICONS.menu;
-            } else {
-                mobileMenu.classList.remove('max-h-0', 'opacity-0');
-                mobileMenu.classList.add('max-h-96', 'opacity-100');
-                if (mobileMenuButton) mobileMenuButton.innerHTML = ICONS.x;
-            }
-        }
-        
-        function injectContent() {
-            if (skillsList) {
-                skillsList.innerHTML = TOP_SKILLS.map(skill => `<li class="flex items-center text-slate-700 dark:text-slate-300">${ICONS.checkCircle} ${skill}</li>`).join('');
+            const themeToggleButton = document.getElementById('theme-toggle');
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const skillsList = document.getElementById('skills-list');
+            const projectGrid = document.getElementById('project-grid');
+            const modalOverlay = document.getElementById('project-modal-overlay');
+            const modal = document.getElementById('project-modal');
+            const modalContent = document.getElementById('project-modal-content');
+            const copyrightYearElement = document.getElementById('copyright-year');
+            const html = document.documentElement;
+
+            function applyTheme(theme) {
+                localStorage.setItem('theme', theme);
+                if (theme === 'dark') {
+                    html.classList.add('dark');
+                    if (themeToggleButton) themeToggleButton.innerHTML = ICONS.sun;
+                } else {
+                    html.classList.remove('dark');
+                    if (themeToggleButton) themeToggleButton.innerHTML = ICONS.moon;
+                }
             }
 
-            if (projectGrid) {
-                projectGrid.innerHTML = PROJECT_DATA.map((project, index) => `
+            function toggleMobileMenu() {
+                const isMenuOpen = mobileMenu.classList.contains('opacity-100');
+                if (isMenuOpen) {
+                    mobileMenu.classList.remove('max-h-96', 'opacity-100');
+                    mobileMenu.classList.add('max-h-0', 'opacity-0');
+                    if (mobileMenuButton) mobileMenuButton.innerHTML = ICONS.menu;
+                } else {
+                    mobileMenu.classList.remove('max-h-0', 'opacity-0');
+                    mobileMenu.classList.add('max-h-96', 'opacity-100');
+                    if (mobileMenuButton) mobileMenuButton.innerHTML = ICONS.x;
+                }
+            }
+
+            function injectContent() {
+                if (skillsList) {
+                    skillsList.innerHTML = TOP_SKILLS.map(skill => `<li class="flex items-center text-slate-700 dark:text-slate-300">${ICONS.checkCircle} ${skill}</li>`).join('');
+                }
+
+                if (projectGrid) {
+                    projectGrid.innerHTML = PROJECT_DATA.map((project, index) => `
                     <div class="project-card group bg-white dark:bg-slate-900 rounded-xl overflow-hidden shadow-md hover:shadow-2xl cursor-pointer border border-slate-200 dark:border-slate-800 transition-all duration-300 ease-out hover:-translate-y-2 hover:scale-[1.02] animated-item" style="transition-delay: ${index * 150}ms;" data-project-id="${project.id}">
                         <div class="relative overflow-hidden">
                             <img src="${project.imageUrl}" alt="${project.title}" class="w-full h-52 object-cover group-hover-image-scale" onError="this.onerror=null; this.src='https://placehold.co/600x400/0f172a/6366f1?text=Image+Not+Found';">
@@ -360,12 +549,12 @@
                         </div>
                     </div>
                 `).join('');
+                }
             }
-        }
 
-        function openModal(project) {
-            if (!project || !modalContent) return;
-            modalContent.innerHTML = `
+            function openModal(project) {
+                if (!project || !modalContent) return;
+                modalContent.innerHTML = `
                 <button id="close-modal-btn" class="absolute top-4 right-4 text-2xl text-slate-500 hover:text-slate-800 dark:hover:text-white transition-all duration-300 hover:scale-125 hover:rotate-90 z-10" aria-label="Close modal">
                     ${ICONS.x}
                 </button>
@@ -386,119 +575,120 @@
                     </div>
                 </div>
             `;
-            
-            document.body.style.overflow = 'hidden';
-            modalOverlay.classList.remove('hidden');
-            modal.classList.remove('hidden');
-            setTimeout(() => {
-                modalOverlay.classList.remove('opacity-0');
-                modalContent.classList.remove('opacity-0', 'scale-95');
-            }, 10);
-        }
 
-        function closeModal() {
-            document.body.style.overflow = '';
-            modalOverlay.classList.add('opacity-0');
-            modalContent.classList.add('opacity-0', 'scale-95');
-            setTimeout(() => {
-                modalOverlay.classList.add('hidden');
-                modal.classList.add('hidden');
-            }, 300);
-        }
-
-        function setupScrollAnimations() {
-            const animatedSections = document.querySelectorAll('.animated-section');
-            if (typeof IntersectionObserver === 'undefined') {
-                animatedSections.forEach(el => el.classList.add('visible'));
-                document.querySelectorAll('.animated-item').forEach(el => {
-                    el.style.opacity = 1;
-                    el.style.transform = 'translateY(0)';
-                });
-                return;
-            };
-            
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                    }
-                });
-            }, { threshold: 0.15 }); // Slightly higher threshold
-            animatedSections.forEach(el => observer.observe(el));
-        }
-        
-        function updateCopyrightYear() {
-            if (copyrightYearElement) {
-                copyrightYearElement.textContent = `© ${new Date().getFullYear()} Towhidul Islam`;
-            }
-        }
-
-        function setupEventListeners() {
-            if (themeToggleButton) {
-                themeToggleButton.addEventListener('click', () => {
-                    const currentTheme = html.classList.contains('dark') ? 'dark' : 'light';
-                    applyTheme(currentTheme === 'dark' ? 'light' : 'dark');
-                });
+                document.body.style.overflow = 'hidden';
+                modalOverlay.classList.remove('hidden');
+                modal.classList.remove('hidden');
+                setTimeout(() => {
+                    modalOverlay.classList.remove('opacity-0');
+                    modalContent.classList.remove('opacity-0', 'scale-95');
+                }, 10);
             }
 
-            if (mobileMenuButton) {
-                mobileMenuButton.addEventListener('click', toggleMobileMenu);
-            }
-            
-            document.querySelectorAll('.nav-link').forEach(link => {
-                link.addEventListener('click', () => {
-                    if (mobileMenu.classList.contains('opacity-100')) {
-                        toggleMobileMenu();
-                    }
-                });
-            });
-
-            if (projectGrid) {
-                projectGrid.addEventListener('click', (e) => {
-                    const card = e.target.closest('.project-card');
-                    if (card) {
-                        const projectId = parseInt(card.dataset.projectId, 10);
-                        const project = PROJECT_DATA.find(p => p.id === projectId);
-                        openModal(project);
-                    }
-                });
-            }
-            
-            if(modal) { // Check if modal exists
-                 modalOverlay.addEventListener('click', closeModal); // Click on overlay closes modal
-                 modalContent.addEventListener('click', (e) => e.stopPropagation()); // Prevent modal content click from closing
-                 // Event listener for close button is set when modal content is injected
-                 // because the button itself is injected.
-                 // So we use event delegation on modalContent or modal for the close button.
-                 modal.addEventListener('click', (e) => {
-                     if (e.target.closest('#close-modal-btn')) {
-                          closeModal();
-                     }
-                 });
+            function closeModal() {
+                document.body.style.overflow = '';
+                modalOverlay.classList.add('opacity-0');
+                modalContent.classList.add('opacity-0', 'scale-95');
+                setTimeout(() => {
+                    modalOverlay.classList.add('hidden');
+                    modal.classList.add('hidden');
+                }, 300);
             }
 
+            function setupScrollAnimations() {
+                const animatedSections = document.querySelectorAll('.animated-section');
+                if (typeof IntersectionObserver === 'undefined') {
+                    animatedSections.forEach(el => el.classList.add('visible'));
+                    document.querySelectorAll('.animated-item').forEach(el => {
+                        el.style.opacity = 1;
+                        el.style.transform = 'translateY(0)';
+                    });
+                    return;
+                };
 
-            window.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape' && modal && !modal.classList.contains('hidden')) {
-                    closeModal();
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                        }
+                    });
+                }, { threshold: 0.15 }); // Slightly higher threshold
+                animatedSections.forEach(el => observer.observe(el));
+            }
+
+            function updateCopyrightYear() {
+                if (copyrightYearElement) {
+                    copyrightYearElement.textContent = `© ${new Date().getFullYear()} Towhidul Islam`;
                 }
-            });
-        }
-        
-        function init() {
-            const savedTheme = localStorage.getItem('theme');
-            const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-            applyTheme(savedTheme || (systemPrefersDark ? 'dark' : 'light'));
-            if(mobileMenuButton) mobileMenuButton.innerHTML = ICONS.menu;
+            }
 
-            injectContent();
-            updateCopyrightYear();
-            setupEventListeners();
-            setupScrollAnimations();
-        }
+            function setupEventListeners() {
+                if (themeToggleButton) {
+                    themeToggleButton.addEventListener('click', () => {
+                        const currentTheme = html.classList.contains('dark') ? 'dark' : 'light';
+                        applyTheme(currentTheme === 'dark' ? 'light' : 'dark');
+                    });
+                }
 
-        init();
-    });
+                if (mobileMenuButton) {
+                    mobileMenuButton.addEventListener('click', toggleMobileMenu);
+                }
+
+                document.querySelectorAll('.nav-link').forEach(link => {
+                    link.addEventListener('click', () => {
+                        if (mobileMenu.classList.contains('opacity-100')) {
+                            toggleMobileMenu();
+                        }
+                    });
+                });
+
+                if (projectGrid) {
+                    projectGrid.addEventListener('click', (e) => {
+                        const card = e.target.closest('.project-card');
+                        if (card) {
+                            const projectId = parseInt(card.dataset.projectId, 10);
+                            const project = PROJECT_DATA.find(p => p.id === projectId);
+                            openModal(project);
+                        }
+                    });
+                }
+
+                if (modal) { // Check if modal exists
+                    modalOverlay.addEventListener('click', closeModal); // Click on overlay closes modal
+                    modalContent.addEventListener('click', (e) => e.stopPropagation()); // Prevent modal content click from closing
+                    // Event listener for close button is set when modal content is injected
+                    // because the button itself is injected.
+                    // So we use event delegation on modalContent or modal for the close button.
+                    modal.addEventListener('click', (e) => {
+                        if (e.target.closest('#close-modal-btn')) {
+                            closeModal();
+                        }
+                    });
+                }
+
+
+                window.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape' && modal && !modal.classList.contains('hidden')) {
+                        closeModal();
+                    }
+                });
+            }
+
+            function init() {
+                const savedTheme = localStorage.getItem('theme');
+                const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                applyTheme(savedTheme || (systemPrefersDark ? 'dark' : 'light'));
+                if (mobileMenuButton) mobileMenuButton.innerHTML = ICONS.menu;
+
+                injectContent();
+                updateCopyrightYear();
+                setupEventListeners();
+                setupScrollAnimations();
+            }
+
+            init();
+        });
     </script>
 </body>
+
 </html>
