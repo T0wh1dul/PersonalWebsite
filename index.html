@@ -31,23 +31,49 @@
             transform: translateY(0);
         }
 
-        /* Gradient for text elements */
+        /* --- "Modern Slate" Theme with Gradient & Glow --- */
+
+        /* Gradient for text elements (no glow) */
         .gradient-text {
-            background: linear-gradient(90deg, #3b82f6, #14b8a6);
+            background: linear-gradient(90deg, #4f46e5, #818cf8); /* Deep Indigo to Lighter Violet */
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        
-        /* Gradient for profile picture ring */
+
+        /* Gradient and Glow for profile picture ring */
         .gradient-ring {
             border: 4px solid transparent;
             background-clip: padding-box;
-            border-image: linear-gradient(to right, #3b82f6, #14b8a6) 1;
+            border-image: linear-gradient(to right, #4f46e5, #818cf8) 1;
+            box-shadow: 0 0 20px rgba(79, 70, 229, 0.4); /* Added Glow */
+            transition: box-shadow 0.3s ease-in-out; /* Smooth transition for hover */
+        }
+        .gradient-ring:hover {
+            box-shadow: 0 0 35px rgba(99, 102, 241, 0.6); /* Enhanced glow on hover */
+        }
+        
+        /* Glow for buttons */
+        .glow-button {
+            box-shadow: 0 0 15px rgba(79, 70, 229, 0.6);
+            transition: box-shadow 0.3s ease-in-out;
+        }
+        .glow-button:hover {
+            box-shadow: 0 0 25px rgba(99, 102, 241, 0.8);
         }
 
         /* Styles for the modal window */
         #project-modal-overlay { transition: opacity 0.3s ease-in-out; }
         #project-modal-content { transition: all 0.3s ease-in-out; }
+
+        /* --- Theme Colors (for solid elements) --- */
+        .accent-bg { background-color: #4f46e5; } /* bg-indigo-600 */
+        .accent-bg-hover:hover { background-color: #4338ca; } /* hover:bg-indigo-700 */
+        .accent-text { color: #4f46e5; }
+        .accent-text-hover:hover { color: #6366f1; } /* hover:text-indigo-500 */
+        .accent-border { border-color: #4f46e5; }
+        .accent-border-hover:hover { border-color: #6366f1; }
+        .accent-icon { color: #4f46e5 !important; opacity: 0.9; }
+
     </style>
 </head>
 <body class="bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 antialiased">
@@ -55,27 +81,27 @@
     <!-- Header -->
     <header class="fixed w-full z-30 backdrop-blur-lg bg-white/80 dark:bg-slate-900/80 border-b border-slate-200/80 dark:border-white/10">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#home" class="text-2xl font-bold text-blue-500">TI</a>
+            <a href="#home" class="text-2xl font-bold accent-text">TI</a>
             <nav class="hidden md:flex items-center space-x-8 text-slate-800 dark:text-white">
-                <a href="#about" class="hover:text-blue-500 transition-colors duration-300">About</a>
-                <a href="#projects" class="hover:text-blue-500 transition-colors duration-300">Projects</a>
-                <a href="#contact" class="hover:text-blue-500 transition-colors duration-300">Contact</a>
+                <a href="#about" class="hover:text-indigo-500 transition-colors duration-300">About</a>
+                <a href="#projects" class="hover:text-indigo-500 transition-colors duration-300">Projects</a>
+                <a href="#contact" class="hover:text-indigo-500 transition-colors duration-300">Contact</a>
             </nav>
             <div class="flex items-center">
-                <button id="theme-toggle" class="text-xl mr-4 focus:outline-none text-slate-800 dark:text-white hover:text-blue-500 transition-colors duration-300">
+                <button id="theme-toggle" class="text-xl mr-4 focus:outline-none text-slate-800 dark:text-white hover:text-indigo-500 transition-colors duration-300">
                     <i class="fas fa-sun"></i>
                 </button>
-                <a href="mailto:tawheedul578@gmail.com" class="hidden md:block bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-5 rounded-full transition-all duration-300 transform hover:scale-105">Hire Me</a>
+                <a href="mailto:tawheedul578@gmail.com" class="hidden md:block accent-bg accent-bg-hover text-white font-bold py-2 px-5 rounded-full transition-all duration-300 transform hover:scale-105 glow-button">Hire Me</a>
                 <button id="mobile-menu-button" class="md:hidden text-2xl ml-4 text-slate-800 dark:text-white">
                     <i class="fas fa-bars"></i>
                 </button>
             </div>
         </div>
         <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-2 bg-white/95 dark:bg-slate-800/95 text-slate-800 dark:text-white">
-            <a href="#about" class="block hover:text-blue-500 transition-colors duration-300 py-2">About</a>
-            <a href="#projects" class="block hover:text-blue-500 transition-colors duration-300 py-2">Projects</a>
-            <a href="#contact" class="block hover:text-blue-500 transition-colors duration-300 py-2">Contact</a>
-            <a href="mailto:tawheedul578@gmail.com" class="block bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full text-center mt-2">Hire Me</a>
+            <a href="#about" class="block hover:text-indigo-500 transition-colors duration-300 py-2">About</a>
+            <a href="#projects" class="block hover:text-indigo-500 transition-colors duration-300 py-2">Projects</a>
+            <a href="#contact" class="block hover:text-indigo-500 transition-colors duration-300 py-2">Contact</a>
+            <a href="mailto:tawheedul578@gmail.com" class="block accent-bg accent-bg-hover text-white font-bold py-2 px-4 rounded-full text-center mt-2">Hire Me</a>
         </div>
     </header>
 
@@ -84,10 +110,10 @@
         <section id="home" class="container mx-auto px-6 pt-32 pb-16 flex flex-col md:flex-row items-center min-h-screen">
             <div class="md:w-1/2 text-center md:text-left">
                 <h1 class="text-4xl md:text-6xl font-bold leading-tight text-slate-800 dark:text-slate-100">Hi, I'm <span class="gradient-text">Towhidul Islam</span></h1>
-                <p class="text-xl md:text-2xl mt-4">A Data Analyst passionate about uncovering insights from data.</p>
+                <p class="text-xl md:text-2xl mt-4">Currently exploring the intersection of business and data, learning how to transform numbers into narrative</p>
                 <div class="mt-8 flex justify-center md:justify-start space-x-4">
-                    <a href="#projects" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-full transition-all duration-300 transform hover:scale-105">View My Work</a>
-                    <a href="link_to_your_resume.pdf" target="_blank" class="border-2 border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white font-bold py-3 px-6 rounded-full transition-colors duration-300">View Resume</a>
+                    <a href="#projects" class="accent-bg accent-bg-hover text-white font-bold py-3 px-6 rounded-full transition-all duration-300 transform hover:scale-105">View My Work</a>
+                    <a href="Asset/Resume_towhidul_islam.pdf" target="_blank" rel="noopener noreferrer" class="border-2 accent-border accent-text accent-bg-hover hover:text-white font-bold py-3 px-6 rounded-full transition-colors duration-300">View Resume</a>
                 </div>
             </div>
             <div class="md:w-1/2 mt-12 md:mt-0 flex justify-center">
@@ -101,18 +127,18 @@
                 <h2 class="text-3xl font-bold text-center mb-12 gradient-text">About Me</h2>
                 <div class="flex flex-col md:flex-row items-center gap-12">
                     <div class="md:w-2/3 text-center md:text-left text-lg leading-relaxed">
-                        <p class="mb-4">I am a detail-oriented Data Analyst with a passion for extracting actionable insights from complex datasets. My expertise lies in data visualization, statistical analysis, and predictive modeling.</p>
-                        <p>I thrive in collaborative environments and am committed to helping organizations make data-driven decisions. I am a quick learner and always eager to explore new technologies and methodologies in the ever-evolving field of data analytics.</p>
+                        <p class="mb-4">My background is at the intersection of business and technology, grounded in a BBA in Management Information Systems from East West University. My studies provided me with a robust understanding of core business operations—including a professional-level grasp of finance—alongside the technical skills for effective data analysis.</p>
+                        <p>My project experience showcases my ability to use tools like SQL, Tableau, and Power BI to create targeted dashboards and insights. I am an enthusiastic and fast learner, continuously growing my capabilities through ongoing IBM professional certifications, and I am keen to apply my foundational knowledge in a challenging and dynamic business environment.</p>
                     </div>
                     <div class="md:w-1/3 w-full">
                         <div class="bg-slate-100 dark:bg-slate-900 p-6 rounded-lg shadow-lg">
-                            <h3 class="text-xl font-bold mb-4 text-blue-500">Top Skills</h3>
+                            <h3 class="text-xl font-bold mb-4 accent-text">Top Skills</h3>
                             <ul class="space-y-3 text-slate-600 dark:text-slate-300">
-                                <li class="flex items-center"><i class="fas fa-check-circle text-blue-500/80 mr-3"></i> Python (Pandas, Scikit-learn)</li>
-                                <li class="flex items-center"><i class="fas fa-check-circle text-blue-500/80 mr-3"></i> SQL</li>
-                                <li class="flex items-center"><i class="fas fa-check-circle text-blue-500/80 mr-3"></i> Tableau & Power BI</li>
-                                <li class="flex items-center"><i class="fas fa-check-circle text-blue-500/80 mr-3"></i> Statistical Analysis</li>
-                                <li class="flex items-center"><i class="fas fa-check-circle text-blue-500/80 mr-3"></i> IBM Cognos Analytics</li>
+                                <li class="flex items-center"><i class="fas fa-check-circle accent-icon mr-3"></i> SQL & Data Transformation</li>
+                                <li class="flex items-center"><i class="fas fa-check-circle accent-icon mr-3"></i> Power BI & Tableau</li>
+                                <li class="flex items-center"><i class="fas fa-check-circle accent-icon mr-3"></i> Python (Pandas)</li>
+                                <li class="flex items-center"><i class="fas fa-check-circle accent-icon mr-3"></i> Business & Financial Analysis</li>
+                                <li class="flex items-center"><i class="fas fa-check-circle accent-icon mr-3"></i> IBM Cognos Analytics</li>
                             </ul>
                         </div>
                     </div>
@@ -135,14 +161,14 @@
             <div class="container mx-auto text-center">
                 <h2 class="text-3xl font-bold text-center mb-12 gradient-text">Get In Touch</h2>
                 <p class="mb-8 max-w-xl mx-auto">I'm currently open to new opportunities and collaborations. My inbox is always open, whether you have a question or just want to say hi, I'll get back to you!</p>
-                <a href="mailto:tawheedul578@gmail.com" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-4 px-8 rounded-full text-lg inline-block transition-all duration-300 transform hover:scale-105">Say Hello</a>
+                <a href="mailto:tawheedul578@gmail.com" class="accent-bg accent-bg-hover text-white font-bold py-4 px-8 rounded-full text-lg inline-block transition-all duration-300 transform hover:scale-105 glow-button">Say Hello</a>
                 <div class="mt-12 flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-8">
-                    <a href="https://www.linkedin.com/in/towhidul-islam01/" target="_blank" rel="noopener noreferrer" class="group flex items-center text-lg text-slate-600 dark:text-slate-300 hover:text-blue-500 transition-colors duration-300">
-                        <i class="fab fa-linkedin text-2xl text-slate-400 group-hover:text-blue-500 transition-colors duration-300"></i>
+                    <a href="https://www.linkedin.com/in/towhidul-islam01/" target="_blank" rel="noopener noreferrer" class="group flex items-center text-lg text-slate-600 dark:text-slate-300 hover:text-indigo-500 transition-colors duration-300">
+                        <i class="fab fa-linkedin text-2xl text-slate-400 group-hover:accent-text transition-colors duration-300"></i>
                         <span class="ml-3">LinkedIn</span>
                     </a>
-                    <a href="https://github.com/T0wh1dul" target="_blank" rel="noopener noreferrer" class="group flex items-center text-lg text-slate-600 dark:text-slate-300 hover:text-blue-500 transition-colors duration-300">
-                        <i class="fab fa-github text-2xl text-slate-400 group-hover:text-blue-500 transition-colors duration-300"></i>
+                    <a href="https://github.com/T0wh1dul" target="_blank" rel="noopener noreferrer" class="group flex items-center text-lg text-slate-600 dark:text-slate-300 hover:text-indigo-500 transition-colors duration-300">
+                        <i class="fab fa-github text-2xl text-slate-400 group-hover:accent-text transition-colors duration-300"></i>
                         <span class="ml-3">GitHub</span>
                     </a>
                 </div>
@@ -154,7 +180,7 @@
     <footer class="py-8">
         <div class="container mx-auto px-6 text-center text-slate-500">
             <p class="mb-2">&copy; 2025 Towhidul Islam. All Rights Reserved.</p>
-            <a href="mailto:tawheedul578@gmail.com" class="hover:text-blue-500 transition-colors duration-300">tawheedul578@gmail.com</a>
+            <a href="mailto:tawheedul578@gmail.com" class="hover:text-indigo-500 transition-colors duration-300">tawheedul578@gmail.com</a>
         </div>
     </footer>
     
@@ -305,7 +331,7 @@
                         <div class="flex flex-wrap gap-2 mb-4">
                             ${project.technologies.slice(0, 3).map(tech => `<span class="bg-slate-200 dark:bg-slate-700 text-xs font-semibold px-2.5 py-1 rounded-full text-slate-600 dark:text-slate-300">${tech}</span>`).join('')}
                         </div>
-                        <span class="font-semibold text-blue-500 hover:underline">View Details <i class="fas fa-arrow-right ml-1"></i></span>
+                        <span class="font-semibold accent-text hover:text-indigo-500">View Details <i class="fas fa-arrow-right ml-1"></i></span>
                     </div>
                 `;
                 card.addEventListener('click', () => openModal(project));
@@ -314,23 +340,23 @@
             
             function openModal(project) {
                  modalContent.innerHTML = `
-                      <button id="close-modal-btn" class="absolute top-4 right-5 text-2xl text-slate-500 hover:text-slate-800 dark:hover:text-white transition-colors">&times;</button>
-                      <div class="flex flex-col lg:flex-row gap-8">
-                          <div class="lg:w-1/2">
-                              <img src="${project.imageUrl}" alt="${project.title}" class="w-full rounded-lg shadow-lg mb-6" onerror="this.onerror=null;this.src='https://placehold.co/600x400/1e293b/ffffff?text=Image+Not+Found';">
-                              <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-                                  ${project.liveLink && project.liveLink !== "#" ? `<a href="${project.liveLink}" target="_blank" rel="noopener noreferrer" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-full w-full text-center transition-all duration-300 transform hover:scale-105">${project.liveLinkText || "View Live Project"}</a>` : ''}
-                                  ${project.githubLink && project.githubLink !== "#" ? `<a href="${project.githubLink}" target="_blank" rel="noopener noreferrer" class="border-2 border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white font-bold py-3 px-6 rounded-full transition-colors duration-300 w-full text-center">${project.githubLinkText || 'View on GitHub'}</a>` : ''}
-                              </div>
-                          </div>
-                          <div class="lg:w-1/2">
-                              <h1 class="text-3xl lg:text-4xl font-bold mb-4 text-slate-800 dark:text-slate-100">${project.title}</h1>
-                              <div class="flex flex-wrap gap-2 mb-6">
-                                  ${project.technologies.map(tech => `<span class="bg-slate-200 dark:bg-slate-700 text-xs font-semibold px-2.5 py-1 rounded-full text-slate-600 dark:text-slate-300">${tech}</span>`).join('')}
-                              </div>
-                              <div class="text-base leading-relaxed">${project.longDescription}</div>
-                          </div>
-                      </div>
+                        <button id="close-modal-btn" class="absolute top-4 right-5 text-2xl text-slate-500 hover:text-slate-800 dark:hover:text-white transition-colors">&times;</button>
+                        <div class="flex flex-col lg:flex-row gap-8">
+                            <div class="lg:w-1/2">
+                                <img src="${project.imageUrl}" alt="${project.title}" class="w-full rounded-lg shadow-lg mb-6" onerror="this.onerror=null;this.src='https://placehold.co/600x400/1e293b/ffffff?text=Image+Not+Found';">
+                                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                                    ${project.liveLink && project.liveLink !== "#" ? `<a href="${project.liveLink}" target="_blank" rel="noopener noreferrer" class="accent-bg accent-bg-hover text-white font-bold py-3 px-6 rounded-full w-full text-center transition-all duration-300 transform hover:scale-105">${project.liveLinkText || "View Live Project"}</a>` : ''}
+                                    ${project.githubLink && project.githubLink !== "#" ? `<a href="${project.githubLink}" target="_blank" rel="noopener noreferrer" class="border-2 accent-border accent-text accent-bg-hover hover:text-white font-bold py-3 px-6 rounded-full transition-colors duration-300 w-full text-center">${project.githubLinkText || 'View on GitHub'}</a>` : ''}
+                                </div>
+                            </div>
+                            <div class="lg:w-1/2">
+                                <h1 class="text-3xl lg:text-4xl font-bold mb-4 text-slate-800 dark:text-slate-100">${project.title}</h1>
+                                <div class="flex flex-wrap gap-2 mb-6">
+                                    ${project.technologies.map(tech => `<span class="bg-slate-200 dark:bg-slate-700 text-xs font-semibold px-2.5 py-1 rounded-full text-slate-600 dark:text-slate-300">${tech}</span>`).join('')}
+                                </div>
+                                <div class="text-base leading-relaxed">${project.longDescription}</div>
+                            </div>
+                        </div>
                     `;
                 
                 document.body.style.overflow = 'hidden'; // Prevent background scroll
