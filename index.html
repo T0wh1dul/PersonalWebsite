@@ -285,12 +285,13 @@
 </head>
 
 <body class="antialiased font-sans bg-slate-50 dark:bg-black text-slate-800 dark:text-slate-200">
-
+    <!-- Header: Positioned fixed at the top with a backdrop blur for a modern look -->
     <header
         class="fixed w-full z-50 backdrop-blur-md bg-slate-50/80 dark:bg-black/70 border-b border-slate-200/80 dark:border-white/10">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <a href="#home"
                 class="text-2xl font-bold gradient-text transition-transform duration-300 hover:scale-110">TI</a>
+            <!-- Desktop Navigation -->
             <nav class="hidden md:flex items-center space-x-8">
                 <a href="#about"
                     class="nav-link text-slate-700 dark:text-slate-300 hover:text-indigo-500 dark:hover:text-indigo-400 transition-colors duration-300">About</a>
@@ -300,14 +301,17 @@
                     class="nav-link text-slate-700 dark:text-slate-300 hover:text-indigo-500 dark:hover:text-indigo-400 transition-colors duration-300">Contact</a>
             </nav>
             <div class="flex items-center gap-4">
+                 <!-- Theme Toggle Button -->
                 <button id="theme-toggle"
                     class="p-2 rounded-full text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800 transition-all duration-300 active:scale-90 active:rotate-90"
                     aria-label="Toggle theme">
                     <!-- Icon is injected by JS -->
                 </button>
+                 <!-- Hire Me Button (Desktop) -->
                 <a href="mailto:tawheedul578@gmail.com"
                     class="hidden md:block bg-gradient-to-r from-sky-500 to-indigo-600 text-white font-bold py-2 px-6 rounded-full shadow-lg transition-all duration-300 ease-in-out hover:scale-105 hover:-translate-y-0.5 hover:shadow-xl active:scale-95">Hire
                     Me</a>
+                <!-- Mobile Menu Button -->
                 <button id="mobile-menu-button"
                     class="md:hidden text-2xl text-slate-700 dark:text-slate-300 transition-transform active:scale-90"
                     aria-label="Toggle menu">
@@ -315,7 +319,7 @@
                 </button>
             </div>
         </div>
-        <!-- Mobile Menu -->
+        <!-- Mobile Menu: Hidden by default, toggled by JS -->
         <div id="mobile-menu"
             class="md:hidden absolute top-full left-0 w-full bg-slate-50/95 dark:bg-black/90 shadow-lg overflow-hidden transition-all duration-300 ease-in-out max-h-0 opacity-0">
             <div class="flex flex-col items-center space-y-6 p-8">
@@ -333,8 +337,10 @@
     </header>
 
     <main>
-        <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden">
-            <div class="absolute inset-0 z-0"> <!-- Container for background gradients -->
+        <!-- Hero Section: Full screen height with animated gradients and content -->
+        <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+            <!-- Animated Background Gradients -->
+            <div class="absolute inset-0 z-0">
                 <div
                     class="absolute bottom-0 left-[-20%] right-[-20%] top-[-10%] h-[500px] w-[500px] rounded-full bg-[radial-gradient(circle_farthest-side,rgba(14,165,233,1),rgba(255,255,255,0))] hero-bg-gradient-1">
                 </div>
@@ -345,14 +351,17 @@
             <div class="container mx-auto px-6 z-10">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                     <div class="text-center md:text-left">
+                        <!-- RESPONSIVE FIX: Adjusted text sizes for better scaling on mobile -->
                         <h1
-                            class="text-4xl sm:text-5xl lg:text-7xl font-extrabold leading-tight text-slate-900 dark:text-slate-50 hero-content-animate hero-h1">
+                            class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight text-slate-900 dark:text-slate-50 hero-content-animate hero-h1">
                             Hi, I'm <span class="gradient-text">Towhidul Islam</span></h1>
+                        <!-- RESPONSIVE FIX: Adjusted text size and margin for mobile -->
                         <p
-                            class="text-xl md:text-2xl mt-6 text-slate-600 dark:text-slate-400 max-w-xl mx-auto md:mx-0 hero-content-animate hero-p">
+                            class="text-lg sm:text-xl md:text-2xl mt-4 sm:mt-6 text-slate-600 dark:text-slate-400 max-w-xl mx-auto md:mx-0 hero-content-animate hero-p">
                             Currently exploring the intersection of business and data, learning how to transform numbers
                             into narrative</p>
-                        <div class="mt-10 flex flex-col sm:flex-row justify-center md:justify-start gap-4">
+                        <!-- RESPONSIVE FIX: Adjusted top margin for mobile -->
+                        <div class="mt-8 sm:mt-10 flex flex-col sm:flex-row justify-center md:justify-start gap-4">
                             <a href="#projects"
                                 class="hero-content-animate hero-btn-1 inline-block bg-gradient-to-r from-sky-500 to-indigo-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-all duration-300 ease-out hover:scale-105 hover:-translate-y-0.5 hover:shadow-[0_10px_20px_-10px_rgba(79,70,229,0.4)] active:scale-95">View
                                 My Work</a>
@@ -361,6 +370,7 @@
                                 Resume</a>
                         </div>
                     </div>
+                    <!-- Animated Profile Image -->
                     <div class="relative flex justify-center mt-8 md:mt-0">
                         <div
                             class="absolute inset-0 rounded-full bg-gradient-to-r from-sky-400 to-indigo-600 blur-2xl hero-glow">
@@ -374,9 +384,12 @@
             </div>
         </section>
 
-        <section id="about" class="py-24 sm:py-32 px-6 bg-slate-100 dark:bg-slate-900 animated-section">
+        <!-- About Section -->
+        <!-- RESPONSIVE FIX: Adjusted vertical padding for better spacing on mobile -->
+        <section id="about" class="py-20 sm:py-24 lg:py-32 px-6 bg-slate-100 dark:bg-slate-900 animated-section">
             <div class="container mx-auto">
-                <h2 class="text-4xl font-bold text-center mb-16 gradient-text animated-item">About Me</h2>
+                <!-- RESPONSIVE FIX: Adjusted bottom margin on heading -->
+                <h2 class="text-4xl font-bold text-center mb-12 md:mb-16 gradient-text animated-item">About Me</h2>
                 <div class="grid md:grid-cols-5 gap-12 items-center">
                     <div class="md:col-span-3 text-lg text-slate-600 dark:text-slate-400 leading-relaxed animated-item">
                         <p class="mb-4">My background is at the intersection of business and technology, grounded in a
@@ -401,18 +414,24 @@
             </div>
         </section>
 
-        <section id="projects" class="py-24 sm:py-32 px-6 bg-slate-50 dark:bg-black animated-section">
+        <!-- Projects Section -->
+        <!-- RESPONSIVE FIX: Adjusted vertical padding -->
+        <section id="projects" class="py-20 sm:py-24 lg:py-32 px-6 bg-slate-50 dark:bg-black animated-section">
             <div class="container mx-auto">
-                <h2 class="text-4xl font-bold text-center mb-16 gradient-text animated-item">Featured Projects</h2>
+                <!-- RESPONSIVE FIX: Adjusted bottom margin on heading -->
+                <h2 class="text-4xl font-bold text-center mb-12 md:mb-16 gradient-text animated-item">Featured Projects</h2>
                 <div id="project-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <!-- Project cards are injected by JS -->
                 </div>
             </div>
         </section>
 
-        <section id="contact" class="py-24 sm:py-32 px-6 bg-slate-100 dark:bg-slate-900 animated-section">
+        <!-- Contact Section -->
+        <!-- RESPONSIVE FIX: Adjusted vertical padding -->
+        <section id="contact" class="py-20 sm:py-24 lg:py-32 px-6 bg-slate-100 dark:bg-slate-900 animated-section">
             <div class="container mx-auto text-center">
-                <h2 class="text-4xl font-bold text-center mb-16 gradient-text animated-item">Get In Touch</h2>
+                <!-- RESPONSIVE FIX: Adjusted bottom margin on heading -->
+                <h2 class="text-4xl font-bold text-center mb-12 md:mb-16 gradient-text animated-item">Get In Touch</h2>
                 <p class="mb-10 max-w-2xl mx-auto text-slate-600 dark:text-slate-400 text-lg animated-item">I'm
                     currently open to new opportunities and collaborations. My inbox is always open, so feel free to
                     reach out!</p>
@@ -463,6 +482,7 @@
         </div>
     </footer>
 
+    <!-- Project Modal: A popup for displaying detailed project information -->
     <div id="project-modal-overlay" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[99] hidden opacity-0"></div>
     <div id="project-modal" class="fixed inset-0 z-[100] flex items-center justify-center p-4 hidden">
         <div id="project-modal-content"
@@ -473,6 +493,7 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            // --- DATA AND CONSTANTS ---
             const ICONS = {
                 sun: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>`,
                 moon: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>`,
@@ -492,6 +513,7 @@
 
             const TOP_SKILLS = ["SQL & Data Transformation", "Power BI & Tableau", "Python (Pandas)", "Business & Financial Analysis", "IBM Cognos Analytics"];
 
+            // --- DOM ELEMENT SELECTORS ---
             const themeToggleButton = document.getElementById('theme-toggle');
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
@@ -503,6 +525,12 @@
             const copyrightYearElement = document.getElementById('copyright-year');
             const html = document.documentElement;
 
+            // --- FUNCTIONS ---
+
+            /**
+             * Applies a color theme ('light' or 'dark') to the page.
+             * @param {string} theme The theme to apply.
+             */
             function applyTheme(theme) {
                 localStorage.setItem('theme', theme);
                 if (theme === 'dark') {
@@ -513,7 +541,10 @@
                     if (themeToggleButton) themeToggleButton.innerHTML = ICONS.moon;
                 }
             }
-
+            
+            /**
+             * Toggles the visibility of the mobile navigation menu.
+             */
             function toggleMobileMenu() {
                 const isMenuOpen = mobileMenu.classList.contains('opacity-100');
                 if (isMenuOpen) {
@@ -527,6 +558,9 @@
                 }
             }
 
+            /**
+             * Injects dynamic content (skills, projects) into the DOM.
+             */
             function injectContent() {
                 if (skillsList) {
                     skillsList.innerHTML = TOP_SKILLS.map(skill => `<li class="flex items-center text-slate-700 dark:text-slate-300">${ICONS.checkCircle} ${skill}</li>`).join('');
@@ -534,47 +568,51 @@
 
                 if (projectGrid) {
                     projectGrid.innerHTML = PROJECT_DATA.map((project, index) => `
-                    <div class="project-card group bg-white dark:bg-slate-900 rounded-xl overflow-hidden shadow-md hover:shadow-2xl cursor-pointer border border-slate-200 dark:border-slate-800 transition-all duration-300 ease-out hover:-translate-y-2 hover:scale-[1.02] animated-item" style="transition-delay: ${index * 150}ms;" data-project-id="${project.id}">
-                        <div class="relative overflow-hidden">
-                            <img src="${project.imageUrl}" alt="${project.title}" class="w-full h-52 object-cover group-hover-image-scale" onError="this.onerror=null; this.src='https://placehold.co/600x400/0f172a/6366f1?text=Image+Not+Found';">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold mb-2 text-slate-800 dark:text-slate-100">${project.title}</h3>
-                            <p class="mb-4 text-slate-600 dark:text-slate-400 text-sm min-h-[40px] line-clamp-2">${project.shortDescription}</p>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                ${project.technologies.slice(0, 3).map(tech => `<span class="bg-slate-200 dark:bg-slate-800 text-xs font-semibold px-3 py-1 rounded-full text-slate-600 dark:text-slate-300">${tech}</span>`).join('')}
+                        <div class="project-card group bg-white dark:bg-slate-900 rounded-xl overflow-hidden shadow-md hover:shadow-2xl cursor-pointer border border-slate-200 dark:border-slate-800 transition-all duration-300 ease-out hover:-translate-y-2 hover:scale-[1.02] animated-item" style="transition-delay: ${index * 150}ms;" data-project-id="${project.id}">
+                            <div class="relative overflow-hidden">
+                                <img src="${project.imageUrl}" alt="${project.title}" class="w-full h-52 object-cover group-hover-image-scale" onError="this.onerror=null; this.src='https://placehold.co/600x400/0f172a/6366f1?text=Image+Not+Found';">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                             </div>
-                            <span class="font-semibold text-indigo-500 dark:text-indigo-400 flex items-center">View Details ${ICONS.arrowRight}</span>
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold mb-2 text-slate-800 dark:text-slate-100">${project.title}</h3>
+                                <p class="mb-4 text-slate-600 dark:text-slate-400 text-sm min-h-[40px] line-clamp-2">${project.shortDescription}</p>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    ${project.technologies.slice(0, 3).map(tech => `<span class="bg-slate-200 dark:bg-slate-800 text-xs font-semibold px-3 py-1 rounded-full text-slate-600 dark:text-slate-300">${tech}</span>`).join('')}
+                                </div>
+                                <span class="font-semibold text-indigo-500 dark:text-indigo-400 flex items-center">View Details ${ICONS.arrowRight}</span>
+                            </div>
                         </div>
-                    </div>
-                `).join('');
+                    `).join('');
                 }
             }
 
+            /**
+             * Opens the project details modal with specific project data.
+             * @param {object} project The project object to display.
+             */
             function openModal(project) {
                 if (!project || !modalContent) return;
                 modalContent.innerHTML = `
-                <button id="close-modal-btn" class="absolute top-4 right-4 text-2xl text-slate-500 hover:text-slate-800 dark:hover:text-white transition-all duration-300 hover:scale-125 hover:rotate-90 z-10" aria-label="Close modal">
-                    ${ICONS.x}
-                </button>
-                <div class="grid lg:grid-cols-2 gap-8">
-                    <div>
-                        <img src="${project.imageUrl}" alt="${project.title}" class="w-full rounded-lg shadow-lg mb-6" onError="this.onerror=null; this.src='https://placehold.co/600x400/0f172a/6366f1?text=Image+Not+Found';">
-                        <div class="flex flex-col sm:flex-row gap-4">
-                            ${project.liveLink ? `<a href="${project.liveLink}" target="_blank" rel="noopener" class="inline-block w-full text-center bg-gradient-to-r from-sky-500 to-indigo-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-all duration-300 ease-out hover:scale-105 hover:-translate-y-0.5 hover:shadow-xl active:scale-95">${project.liveLinkText || "View Live Project"}</a>` : ''}
-                            ${project.githubLink ? `<a href="${project.githubLink}" target="_blank" rel="noopener" class="inline-block w-full text-center border-2 border-indigo-400 text-indigo-400 font-bold py-3 px-8 rounded-full transition-all duration-300 ease-out hover:scale-105 hover:-translate-y-0.5 hover:bg-indigo-500 hover:text-white active:scale-95">${project.githubLinkText || 'View on GitHub'}</a>` : ''}
+                    <button id="close-modal-btn" class="absolute top-4 right-4 text-2xl text-slate-500 hover:text-slate-800 dark:hover:text-white transition-all duration-300 hover:scale-125 hover:rotate-90 z-10" aria-label="Close modal">
+                        ${ICONS.x}
+                    </button>
+                    <div class="grid lg:grid-cols-2 gap-8">
+                        <div>
+                            <img src="${project.imageUrl}" alt="${project.title}" class="w-full rounded-lg shadow-lg mb-6" onError="this.onerror=null; this.src='https://placehold.co/600x400/0f172a/6366f1?text=Image+Not+Found';">
+                            <div class="flex flex-col sm:flex-row gap-4">
+                                ${project.liveLink ? `<a href="${project.liveLink}" target="_blank" rel="noopener" class="inline-block w-full text-center bg-gradient-to-r from-sky-500 to-indigo-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-all duration-300 ease-out hover:scale-105 hover:-translate-y-0.5 hover:shadow-xl active:scale-95">${project.liveLinkText || "View Live Project"}</a>` : ''}
+                                ${project.githubLink ? `<a href="${project.githubLink}" target="_blank" rel="noopener" class="inline-block w-full text-center border-2 border-indigo-400 text-indigo-400 font-bold py-3 px-8 rounded-full transition-all duration-300 ease-out hover:scale-105 hover:-translate-y-0.5 hover:bg-indigo-500 hover:text-white active:scale-95">${project.githubLinkText || 'View on GitHub'}</a>` : ''}
+                            </div>
+                        </div>
+                        <div>
+                            <h1 class="text-3xl lg:text-4xl font-bold mb-4 text-slate-800 dark:text-slate-100">${project.title}</h1>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                ${project.technologies.map(tech => `<span class="bg-slate-200 dark:bg-slate-800 text-xs font-semibold px-3 py-1 rounded-full text-slate-600 dark:text-slate-300">${tech}</span>`).join('')}
+                            </div>
+                            <div class="text-base leading-relaxed text-slate-600 dark:text-slate-400 prose dark:prose-invert max-w-none">${project.longDescription.replace(/\n/g, '<br />')}</div>
                         </div>
                     </div>
-                    <div>
-                        <h1 class="text-3xl lg:text-4xl font-bold mb-4 text-slate-800 dark:text-slate-100">${project.title}</h1>
-                        <div class="flex flex-wrap gap-2 mb-6">
-                            ${project.technologies.map(tech => `<span class="bg-slate-200 dark:bg-slate-800 text-xs font-semibold px-3 py-1 rounded-full text-slate-600 dark:text-slate-300">${tech}</span>`).join('')}
-                        </div>
-                        <div class="text-base leading-relaxed text-slate-600 dark:text-slate-400 prose dark:prose-invert max-w-none">${project.longDescription.replace(/\n/g, '<br />')}</div>
-                    </div>
-                </div>
-            `;
+                `;
 
                 document.body.style.overflow = 'hidden';
                 modalOverlay.classList.remove('hidden');
@@ -585,6 +623,9 @@
                 }, 10);
             }
 
+            /**
+             * Closes the project details modal.
+             */
             function closeModal() {
                 document.body.style.overflow = '';
                 modalOverlay.classList.add('opacity-0');
@@ -594,9 +635,13 @@
                     modal.classList.add('hidden');
                 }, 300);
             }
-
+            
+            /**
+             * Sets up IntersectionObserver for scroll-triggered animations.
+             */
             function setupScrollAnimations() {
                 const animatedSections = document.querySelectorAll('.animated-section');
+                // Fallback for browsers that don't support IntersectionObserver
                 if (typeof IntersectionObserver === 'undefined') {
                     animatedSections.forEach(el => el.classList.add('visible'));
                     document.querySelectorAll('.animated-item').forEach(el => {
@@ -612,16 +657,22 @@
                             entry.target.classList.add('visible');
                         }
                     });
-                }, { threshold: 0.15 }); // Slightly higher threshold
+                }, { threshold: 0.15 }); 
                 animatedSections.forEach(el => observer.observe(el));
             }
 
+            /**
+             * Updates the copyright year in the footer to the current year.
+             */
             function updateCopyrightYear() {
                 if (copyrightYearElement) {
                     copyrightYearElement.textContent = `© ${new Date().getFullYear()} Towhidul Islam`;
                 }
             }
 
+            /**
+             * Sets up all the necessary event listeners for the page.
+             */
             function setupEventListeners() {
                 if (themeToggleButton) {
                     themeToggleButton.addEventListener('click', () => {
@@ -653,17 +704,14 @@
                     });
                 }
 
-                if (modal) { // Check if modal exists
-                    modalOverlay.addEventListener('click', closeModal); // Click on overlay closes modal
-                    modalContent.addEventListener('click', (e) => e.stopPropagation()); // Prevent modal content click from closing
-                    // Event listener for close button is set when modal content is injected
-                    // because the button itself is injected.
-                    // So we use event delegation on modalContent or modal for the close button.
+                if (modal) {
+                    // Use event delegation for the close button since it's added dynamically
                     modal.addEventListener('click', (e) => {
                         if (e.target.closest('#close-modal-btn')) {
                             closeModal();
                         }
                     });
+                    modalOverlay.addEventListener('click', closeModal);
                 }
 
 
@@ -673,7 +721,10 @@
                     }
                 });
             }
-
+            
+            /**
+             * Initializes the entire page script.
+             */
             function init() {
                 const savedTheme = localStorage.getItem('theme');
                 const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -686,6 +737,7 @@
                 setupScrollAnimations();
             }
 
+            // Run the initialization function when the DOM is ready.
             init();
         });
     </script>
