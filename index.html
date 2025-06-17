@@ -69,18 +69,43 @@
         }
 
         /* Staggered delay for animated items */
-        .animated-section.visible .animated-item:nth-child(1) { transition-delay: 0.1s; }
-        .animated-section.visible .animated-item:nth-child(2) { transition-delay: 0.2s; }
-        .animated-section.visible .animated-item:nth-child(3) { transition-delay: 0.3s; }
-        .animated-section.visible .animated-item:nth-child(4) { transition-delay: 0.4s; }
-        .animated-section.visible .animated-item:nth-child(5) { transition-delay: 0.5s; }
-        .animated-section.visible .animated-item:nth-child(6) { transition-delay: 0.6s; }
+        .animated-section.visible .animated-item:nth-child(1) {
+            transition-delay: 0.1s;
+        }
+
+        .animated-section.visible .animated-item:nth-child(2) {
+            transition-delay: 0.2s;
+        }
+
+        .animated-section.visible .animated-item:nth-child(3) {
+            transition-delay: 0.3s;
+        }
+
+        .animated-section.visible .animated-item:nth-child(4) {
+            transition-delay: 0.4s;
+        }
+
+        .animated-section.visible .animated-item:nth-child(5) {
+            transition-delay: 0.5s;
+        }
+
+        .animated-section.visible .animated-item:nth-child(6) {
+            transition-delay: 0.6s;
+        }
 
         /* --- Animated Gradient Text --- */
         @keyframes gradient-animation {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
         }
 
         .gradient-text {
@@ -93,56 +118,157 @@
         }
 
         /* --- Hero Section Specific Animations --- */
-        .hero-glow { animation: pulse-glow 5s ease-in-out infinite; }
-        .hero-rotate { animation: spin 30s linear infinite; }
-        @keyframes pulse-glow {
-            0%, 100% { transform: scale(1); opacity: 0.4; }
-            50% { transform: scale(1.05); opacity: 0.5; }
+        .hero-glow {
+            animation: pulse-glow 5s ease-in-out infinite;
         }
+
+        .hero-rotate {
+            animation: spin 30s linear infinite;
+        }
+
+        @keyframes pulse-glow {
+
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 0.4;
+            }
+
+            50% {
+                transform: scale(1.05);
+                opacity: 0.5;
+            }
+        }
+
         @keyframes spin {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
         }
 
         /* --- Hero content entrance animations --- */
         @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
+
         .hero-content-animate {
             opacity: 0;
             animation: fadeInUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
             will-change: opacity, transform;
         }
-        #home .hero-h1 { animation-delay: 0.2s; }
-        #home .hero-p { animation-delay: 0.4s; }
-        #home .hero-btn-1 { animation-delay: 0.6s; }
-        #home .hero-btn-2 { animation-delay: 0.7s; }
-        #home .hero-img { animation-delay: 0.5s; }
+
+        #home .hero-h1 {
+            animation-delay: 0.2s;
+        }
+
+        #home .hero-p {
+            animation-delay: 0.4s;
+        }
+
+        #home .hero-btn-1 {
+            animation-delay: 0.6s;
+        }
+
+        #home .hero-btn-2 {
+            animation-delay: 0.7s;
+        }
+
+        #home .hero-img {
+            animation-delay: 0.5s;
+        }
 
         /* --- Hero background gradient animations --- */
-        .hero-bg-gradient-1, .hero-bg-gradient-2 { will-change: transform, opacity; }
-        .hero-bg-gradient-1 { animation: gentleDriftOne 25s ease-in-out infinite alternate; }
-        .hero-bg-gradient-2 { animation: gentleDriftTwo 30s ease-in-out infinite alternate; }
-        @keyframes gentleDriftOne {
-            0% { transform: translate(0, 0) scale(1); opacity: 0.15; }
-            50% { transform: translate(20px, 10px) scale(1.1); opacity: 0.2; }
-            100% { transform: translate(-10px, -15px) scale(0.9); opacity: 0.12; }
+        .hero-bg-gradient-1,
+        .hero-bg-gradient-2 {
+            will-change: transform, opacity;
         }
+
+        .hero-bg-gradient-1 {
+            animation: gentleDriftOne 25s ease-in-out infinite alternate;
+        }
+
+        .hero-bg-gradient-2 {
+            animation: gentleDriftTwo 30s ease-in-out infinite alternate;
+        }
+
+        @keyframes gentleDriftOne {
+            0% {
+                transform: translate(0, 0) scale(1);
+                opacity: 0.15;
+            }
+
+            50% {
+                transform: translate(20px, 10px) scale(1.1);
+                opacity: 0.2;
+            }
+
+            100% {
+                transform: translate(-10px, -15px) scale(0.9);
+                opacity: 0.12;
+            }
+        }
+
         @keyframes gentleDriftTwo {
-            0% { transform: translate(0, 0) scale(1); opacity: 0.1; }
-            50% { transform: translate(-15px, 20px) scale(1.1); opacity: 0.15; }
-            100% { transform: translate(10px, -10px) scale(0.9); opacity: 0.08; }
+            0% {
+                transform: translate(0, 0) scale(1);
+                opacity: 0.1;
+            }
+
+            50% {
+                transform: translate(-15px, 20px) scale(1.1);
+                opacity: 0.15;
+            }
+
+            100% {
+                transform: translate(10px, -10px) scale(0.9);
+                opacity: 0.08;
+            }
         }
 
         /* --- Modal and Project Card Transitions --- */
-        #project-modal-overlay { transition: opacity 0.3s ease-out; }
-        #project-modal-content { transition: all 0.3s ease-out; will-change: opacity, transform; }
-        .project-card { will-change: transform, box-shadow; }
-        .project-card .group-hover-arrow { transition: transform 0.3s ease-out; will-change: transform; }
-        .project-card:hover .group-hover-arrow { transform: translateX(4px); }
-        .project-card .group-hover-image-scale { transition: transform 0.5s ease-out; will-change: transform; }
-        .project-card:hover .group-hover-image-scale { transform: scale(1.1); }
+        #project-modal-overlay {
+            transition: opacity 0.3s ease-out;
+        }
+
+        #project-modal-content {
+            transition: all 0.3s ease-out;
+            will-change: opacity, transform;
+        }
+
+        .project-card {
+            will-change: transform, box-shadow;
+        }
+
+        .project-card .group-hover-arrow {
+            transition: transform 0.3s ease-out;
+            will-change: transform;
+        }
+
+        .project-card:hover .group-hover-arrow {
+            transform: translateX(4px);
+        }
+
+        .project-card .group-hover-image-scale {
+            transition: transform 0.5s ease-out;
+            will-change: transform;
+        }
+
+        .project-card:hover .group-hover-image-scale {
+            transform: scale(1.1);
+        }
+
         .line-clamp-2 {
             overflow: hidden;
             display: -webkit-box;
@@ -207,7 +333,8 @@
     <main>
         <!-- Hero Section: Full screen height with animated gradients and content -->
         <!-- RESPONSIVE FIX: Adjusted padding for different screen sizes (pt-24 for mobile, md:pt-20 for desktop) -->
-        <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 md:pt-20">
+        <section id="home"
+            class="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 md:pt-20">
             <!-- Animated Background Gradients -->
             <div class="absolute inset-0 z-0">
                 <div
@@ -228,7 +355,8 @@
                         <!-- RESPONSIVE FIX: Adjusted text size and margin for mobile -->
                         <p
                             class="text-lg sm:text-xl md:text-2xl mt-4 sm:mt-6 text-slate-600 dark:text-slate-400 max-w-xl mx-auto lg:mx-0 hero-content-animate hero-p">
-                            Currently exploring the intersection of business and data, learning how to transform numbers
+                            I am currently exploring the insights of business and data, trying learning how to transform
+                            numbers
                             into narrative</p>
                         <!-- RESPONSIVE FIX: Stack buttons on mobile (flex-col), row on larger screens (sm:flex-row) -->
                         <div class="mt-8 sm:mt-10 flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
@@ -260,18 +388,19 @@
         <!-- RESPONSIVE FIX: Adjusted vertical padding for better spacing on all devices -->
         <section id="about" class="py-20 sm:py-24 lg:py-32 bg-slate-100 dark:bg-slate-900 animated-section">
             <div class="container mx-auto px-4 sm:px-6">
-                 <!-- RESPONSIVE FIX: Adjusted bottom margin on heading for different screens -->
+                <!-- RESPONSIVE FIX: Adjusted bottom margin on heading for different screens -->
                 <h2 class="text-4xl font-bold text-center mb-12 md:mb-16 gradient-text animated-item">About Me</h2>
                 <div class="grid md:grid-cols-5 gap-12 items-center">
                     <div class="md:col-span-3 text-lg text-slate-600 dark:text-slate-400 leading-relaxed animated-item">
-                        <p class="mb-4">My background is at the intersection of business and technology, grounded in a
-                            BBA in Management Information Systems. This foundation gives me a robust understanding of
-                            core business operations—including a professional-level grasp of finance—alongside the
-                            technical skills for effective data analysis.</p>
-                        <p>My project experience showcases my ability to use tools like SQL, Tableau, and Power BI to
+                        <p class="mb-4">My background is at the insights of business and technology, basis in
+                            BBA in Management Information Systems. This foundation gives me a realistic understanding of
+                            core business operations including a professional-level understanding in finance with the
+                            technical skills for effective analysis.</p>
+                        <p>My project experience showcases the ability to use tools like SQL, Tableau, and Power BI to
                             create targeted dashboards and insights. I am an enthusiastic and fast learner, continuously
-                            growing my capabilities through ongoing IBM professional certifications, and I am keen to
-                            apply my foundational knowledge in a challenging and dynamic business environment.</p>
+                            trying to growing my capabilities through ongoing certifications like IMB Professional
+                            certifications, and I am curious to
+                            apply my basic understanding in a dynamic business environment.</p>
                     </div>
                     <div class="md:col-span-2 animated-item">
                         <div
