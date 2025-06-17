@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Towhidul Islam</title>
-     <link rel="icon"  href="t.svg">
+    <link rel="icon" href="t.svg">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -45,6 +45,7 @@
             font-family: 'Poppins', 'sans-serif';
         }
 
+        /* --- Scroll Animation Classes --- */
         .animated-section {
             opacity: 0;
             transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -57,9 +58,7 @@
         .animated-item {
             opacity: 0;
             transform: translateY(30px);
-            /* Slightly more travel */
             transition: opacity 0.7s cubic-bezier(0.165, 0.84, 0.44, 1),
-                /* easeOutQuart */
                 transform 0.7s cubic-bezier(0.165, 0.84, 0.44, 1);
             will-change: opacity, transform;
         }
@@ -69,48 +68,23 @@
             transform: translateY(0);
         }
 
-        .animated-section.visible .animated-item:nth-child(1) {
-            transition-delay: 0.1s;
-        }
-
-        .animated-section.visible .animated-item:nth-child(2) {
-            transition-delay: 0.2s;
-        }
-
-        .animated-section.visible .animated-item:nth-child(3) {
-            transition-delay: 0.3s;
-        }
-
-        .animated-section.visible .animated-item:nth-child(4) {
-            transition-delay: 0.4s;
-        }
-
-        .animated-section.visible .animated-item:nth-child(5) {
-            transition-delay: 0.5s;
-        }
-
-        .animated-section.visible .animated-item:nth-child(6) {
-            transition-delay: 0.6s;
-        }
+        /* Staggered delay for animated items */
+        .animated-section.visible .animated-item:nth-child(1) { transition-delay: 0.1s; }
+        .animated-section.visible .animated-item:nth-child(2) { transition-delay: 0.2s; }
+        .animated-section.visible .animated-item:nth-child(3) { transition-delay: 0.3s; }
+        .animated-section.visible .animated-item:nth-child(4) { transition-delay: 0.4s; }
+        .animated-section.visible .animated-item:nth-child(5) { transition-delay: 0.5s; }
+        .animated-section.visible .animated-item:nth-child(6) { transition-delay: 0.6s; }
 
         /* --- Animated Gradient Text --- */
         @keyframes gradient-animation {
-            0% {
-                background-position: 0% 50%;
-            }
-
-            50% {
-                background-position: 100% 50%;
-            }
-
-            100% {
-                background-position: 0% 50%;
-            }
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
         .gradient-text {
             background-image: linear-gradient(to right, #38bdf8, #818cf8, #38bdf8);
-            /* from-sky-400 via-indigo-400 to-sky-400 */
             background-size: 200% auto;
             animation: gradient-animation 4s ease-in-out infinite;
             -webkit-background-clip: text;
@@ -118,164 +92,57 @@
             color: transparent;
         }
 
-
         /* --- Hero Section Specific Animations --- */
-        .hero-glow {
-            animation: pulse-glow 5s ease-in-out infinite;
-        }
-
-        .hero-rotate {
-            animation: spin 30s linear infinite;
-        }
-
+        .hero-glow { animation: pulse-glow 5s ease-in-out infinite; }
+        .hero-rotate { animation: spin 30s linear infinite; }
         @keyframes pulse-glow {
-
-            0%,
-            100% {
-                transform: scale(1);
-                opacity: 0.4;
-            }
-
-            50% {
-                transform: scale(1.05);
-                opacity: 0.5;
-            }
+            0%, 100% { transform: scale(1); opacity: 0.4; }
+            50% { transform: scale(1.05); opacity: 0.5; }
         }
-
         @keyframes spin {
-            from {
-                transform: rotate(0deg);
-            }
-
-            to {
-                transform: rotate(360deg);
-            }
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
         }
 
-        /* Hero content entrance animations */
+        /* --- Hero content entrance animations --- */
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-
         .hero-content-animate {
             opacity: 0;
-            animation-name: fadeInUp;
-            animation-duration: 0.8s;
-            animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            animation-fill-mode: forwards;
+            animation: fadeInUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
             will-change: opacity, transform;
         }
+        #home .hero-h1 { animation-delay: 0.2s; }
+        #home .hero-p { animation-delay: 0.4s; }
+        #home .hero-btn-1 { animation-delay: 0.6s; }
+        #home .hero-btn-2 { animation-delay: 0.7s; }
+        #home .hero-img { animation-delay: 0.5s; }
 
-        /* Stagger delays for hero content */
-        #home .hero-h1 {
-            animation-delay: 0.2s;
-        }
-
-        #home .hero-p {
-            animation-delay: 0.4s;
-        }
-
-        #home .hero-btn-1 {
-            animation-delay: 0.6s;
-        }
-
-        #home .hero-btn-2 {
-            animation-delay: 0.7s;
-        }
-
-        #home .hero-img {
-            animation-delay: 0.5s;
-        }
-
-        /* Hero background gradient animations */
-        .hero-bg-gradient-1,
-        .hero-bg-gradient-2 {
-            will-change: transform, opacity;
-        }
-
-        .hero-bg-gradient-1 {
-            animation: gentleDriftOne 25s ease-in-out infinite alternate;
-        }
-
-        .hero-bg-gradient-2 {
-            animation: gentleDriftTwo 30s ease-in-out infinite alternate;
-        }
-
+        /* --- Hero background gradient animations --- */
+        .hero-bg-gradient-1, .hero-bg-gradient-2 { will-change: transform, opacity; }
+        .hero-bg-gradient-1 { animation: gentleDriftOne 25s ease-in-out infinite alternate; }
+        .hero-bg-gradient-2 { animation: gentleDriftTwo 30s ease-in-out infinite alternate; }
         @keyframes gentleDriftOne {
-            0% {
-                transform: translate(0, 0) scale(1);
-                opacity: 0.15;
-            }
-
-            50% {
-                transform: translate(20px, 10px) scale(1.1);
-                opacity: 0.2;
-            }
-
-            100% {
-                transform: translate(-10px, -15px) scale(0.9);
-                opacity: 0.12;
-            }
+            0% { transform: translate(0, 0) scale(1); opacity: 0.15; }
+            50% { transform: translate(20px, 10px) scale(1.1); opacity: 0.2; }
+            100% { transform: translate(-10px, -15px) scale(0.9); opacity: 0.12; }
         }
-
         @keyframes gentleDriftTwo {
-            0% {
-                transform: translate(0, 0) scale(1);
-                opacity: 0.1;
-            }
-
-            50% {
-                transform: translate(-15px, 20px) scale(1.1);
-                opacity: 0.15;
-            }
-
-            100% {
-                transform: translate(10px, -10px) scale(0.9);
-                opacity: 0.08;
-            }
+            0% { transform: translate(0, 0) scale(1); opacity: 0.1; }
+            50% { transform: translate(-15px, 20px) scale(1.1); opacity: 0.15; }
+            100% { transform: translate(10px, -10px) scale(0.9); opacity: 0.08; }
         }
 
-
-        #project-modal-overlay {
-            transition: opacity 0.3s ease-out;
-        }
-
-        #project-modal-content {
-            transition: all 0.3s ease-out;
-            will-change: opacity, transform;
-        }
-
-        .project-card {
-            will-change: transform, box-shadow;
-            /* For card hover lift and shadow change */
-        }
-
-        .project-card .group-hover-arrow {
-            transition: transform 0.3s ease-out;
-            will-change: transform;
-        }
-
-        .project-card:hover .group-hover-arrow {
-            transform: translateX(4px);
-        }
-
-        .project-card .group-hover-image-scale {
-            transition: transform 0.5s ease-out;
-            will-change: transform;
-        }
-
-        .project-card:hover .group-hover-image-scale {
-            transform: scale(1.1);
-        }
-
+        /* --- Modal and Project Card Transitions --- */
+        #project-modal-overlay { transition: opacity 0.3s ease-out; }
+        #project-modal-content { transition: all 0.3s ease-out; will-change: opacity, transform; }
+        .project-card { will-change: transform, box-shadow; }
+        .project-card .group-hover-arrow { transition: transform 0.3s ease-out; will-change: transform; }
+        .project-card:hover .group-hover-arrow { transform: translateX(4px); }
+        .project-card .group-hover-image-scale { transition: transform 0.5s ease-out; will-change: transform; }
+        .project-card:hover .group-hover-image-scale { transform: scale(1.1); }
         .line-clamp-2 {
             overflow: hidden;
             display: -webkit-box;
@@ -289,7 +156,7 @@
     <!-- Header: Positioned fixed at the top with a backdrop blur for a modern look -->
     <header
         class="fixed w-full z-50 backdrop-blur-md bg-slate-50/80 dark:bg-black/70 border-b border-slate-200/80 dark:border-white/10">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+        <div class="container mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
             <a href="#home"
                 class="text-2xl font-bold gradient-text transition-transform duration-300 hover:scale-110">TI</a>
             <!-- Desktop Navigation -->
@@ -301,20 +168,20 @@
                 <a href="#contact"
                     class="nav-link text-slate-700 dark:text-slate-300 hover:text-indigo-500 dark:hover:text-indigo-400 transition-colors duration-300">Contact</a>
             </nav>
-            <div class="flex items-center gap-4">
-                 <!-- Theme Toggle Button -->
+            <div class="flex items-center gap-2 sm:gap-4">
+                <!-- Theme Toggle Button -->
                 <button id="theme-toggle"
                     class="p-2 rounded-full text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800 transition-all duration-300 active:scale-90 active:rotate-90"
                     aria-label="Toggle theme">
                     <!-- Icon is injected by JS -->
                 </button>
-                 <!-- Hire Me Button (Desktop) -->
+                <!-- Hire Me Button (Desktop) -->
                 <a href="mailto:tawheedul578@gmail.com"
                     class="hidden md:block bg-gradient-to-r from-sky-500 to-indigo-600 text-white font-bold py-2 px-6 rounded-full shadow-lg transition-all duration-300 ease-in-out hover:scale-105 hover:-translate-y-0.5 hover:shadow-xl active:scale-95">Hire
                     Me</a>
                 <!-- Mobile Menu Button -->
                 <button id="mobile-menu-button"
-                    class="md:hidden text-2xl text-slate-700 dark:text-slate-300 transition-transform active:scale-90"
+                    class="md:hidden text-2xl p-1 text-slate-700 dark:text-slate-300 transition-transform active:scale-90"
                     aria-label="Toggle menu">
                     <!-- Icon is injected by JS -->
                 </button>
@@ -339,7 +206,8 @@
 
     <main>
         <!-- Hero Section: Full screen height with animated gradients and content -->
-        <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+        <!-- RESPONSIVE FIX: Adjusted padding for different screen sizes (pt-24 for mobile, md:pt-20 for desktop) -->
+        <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 md:pt-20">
             <!-- Animated Background Gradients -->
             <div class="absolute inset-0 z-0">
                 <div
@@ -349,47 +217,50 @@
                     class="absolute bottom-[-40%] right-[20%] top-[-10%] h-[500px] w-[500px] rounded-full bg-[radial-gradient(circle_farthest-side,rgba(99,102,241,1),rgba(255,255,255,0))] hero-bg-gradient-2">
                 </div>
             </div>
-            <div class="container mx-auto px-6 z-10">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                    <div class="text-center md:text-left">
-                        <!-- RESPONSIVE FIX: Adjusted text sizes for better scaling on mobile -->
+            <div class="container mx-auto px-4 sm:px-6 z-10">
+                <!-- RESPONSIVE FIX: Adjusted grid layout and gap for better spacing -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                    <div class="text-center lg:text-left">
+                        <!-- RESPONSIVE FIX: Adjusted text sizes for better scaling from mobile to large screens -->
                         <h1
                             class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight text-slate-900 dark:text-slate-50 hero-content-animate hero-h1">
                             Hi, I'm <span class="gradient-text">Towhidul Islam</span></h1>
                         <!-- RESPONSIVE FIX: Adjusted text size and margin for mobile -->
                         <p
-                            class="text-lg sm:text-xl md:text-2xl mt-4 sm:mt-6 text-slate-600 dark:text-slate-400 max-w-xl mx-auto md:mx-0 hero-content-animate hero-p">
+                            class="text-lg sm:text-xl md:text-2xl mt-4 sm:mt-6 text-slate-600 dark:text-slate-400 max-w-xl mx-auto lg:mx-0 hero-content-animate hero-p">
                             Currently exploring the intersection of business and data, learning how to transform numbers
                             into narrative</p>
-                        <!-- RESPONSIVE FIX: Adjusted top margin for mobile -->
-                        <div class="mt-8 sm:mt-10 flex flex-col sm:flex-row justify-center md:justify-start gap-4">
+                        <!-- RESPONSIVE FIX: Stack buttons on mobile (flex-col), row on larger screens (sm:flex-row) -->
+                        <div class="mt-8 sm:mt-10 flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
                             <a href="#projects"
                                 class="hero-content-animate hero-btn-1 inline-block bg-gradient-to-r from-sky-500 to-indigo-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-all duration-300 ease-out hover:scale-105 hover:-translate-y-0.5 hover:shadow-[0_10px_20px_-10px_rgba(79,70,229,0.4)] active:scale-95">View
                                 My Work</a>
-                            <a href="./Asset/Towhidul-Islam-Resume.pdf" target="_blank"
+                            <a href="https://raw.githubusercontent.com/T0wh1dul/Portfolio/main/Asset/Towhidul-Islam-Resume.pdf" target="_blank"
                                 class="hero-content-animate hero-btn-2 inline-block border-2 border-indigo-400 text-indigo-400 font-bold py-3 px-8 rounded-full transition-all duration-300 ease-out hover:scale-105 hover:-translate-y-0.5 hover:bg-indigo-500 hover:text-white active:scale-95">View
                                 Resume</a>
                         </div>
                     </div>
                     <!-- Animated Profile Image -->
-                    <div class="relative flex justify-center mt-8 md:mt-0">
+                    <!-- RESPONSIVE FIX: Center image on mobile, adjust top margin for better alignment -->
+                    <div class="relative flex justify-center mt-12 lg:mt-0">
                         <div
                             class="absolute inset-0 rounded-full bg-gradient-to-r from-sky-400 to-indigo-600 blur-2xl hero-glow">
                         </div>
                         <div class="absolute inset-0 rounded-full border-2 border-indigo-500/50 hero-rotate"></div>
+                        <!-- RESPONSIVE FIX: Adjusted image size for different screen sizes -->
                         <img src="https://raw.githubusercontent.com/T0wh1dul/Portfolio/main/src/assets/Towhid.jpg"
                             alt="Towhidul Islam"
-                            class="relative z-10 rounded-full h-64 w-64 md:h-80 md:w-80 object-cover shadow-2xl hero-content-animate hero-img" />
+                            class="relative z-10 rounded-full h-60 w-60 sm:h-72 sm:w-72 md:h-80 md:w-80 object-cover shadow-2xl hero-content-animate hero-img" />
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- About Section -->
-        <!-- RESPONSIVE FIX: Adjusted vertical padding for better spacing on mobile -->
-        <section id="about" class="py-20 sm:py-24 lg:py-32 px-6 bg-slate-100 dark:bg-slate-900 animated-section">
-            <div class="container mx-auto">
-                <!-- RESPONSIVE FIX: Adjusted bottom margin on heading -->
+        <!-- RESPONSIVE FIX: Adjusted vertical padding for better spacing on all devices -->
+        <section id="about" class="py-20 sm:py-24 lg:py-32 bg-slate-100 dark:bg-slate-900 animated-section">
+            <div class="container mx-auto px-4 sm:px-6">
+                 <!-- RESPONSIVE FIX: Adjusted bottom margin on heading for different screens -->
                 <h2 class="text-4xl font-bold text-center mb-12 md:mb-16 gradient-text animated-item">About Me</h2>
                 <div class="grid md:grid-cols-5 gap-12 items-center">
                     <div class="md:col-span-3 text-lg text-slate-600 dark:text-slate-400 leading-relaxed animated-item">
@@ -416,11 +287,13 @@
         </section>
 
         <!-- Projects Section -->
-        <!-- RESPONSIVE FIX: Adjusted vertical padding -->
-        <section id="projects" class="py-20 sm:py-24 lg:py-32 px-6 bg-slate-50 dark:bg-black animated-section">
-            <div class="container mx-auto">
+        <!-- RESPONSIVE FIX: Adjusted vertical padding for all devices -->
+        <section id="projects" class="py-20 sm:py-24 lg:py-32 bg-slate-50 dark:bg-black animated-section">
+            <div class="container mx-auto px-4 sm:px-6">
                 <!-- RESPONSIVE FIX: Adjusted bottom margin on heading -->
-                <h2 class="text-4xl font-bold text-center mb-12 md:mb-16 gradient-text animated-item">Featured Projects</h2>
+                <h2 class="text-4xl font-bold text-center mb-12 md:mb-16 gradient-text animated-item">Featured Projects
+                </h2>
+                <!-- RESPONSIVE FIX: The grid is already responsive, but gap is adjusted for better visuals -->
                 <div id="project-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <!-- Project cards are injected by JS -->
                 </div>
@@ -428,9 +301,9 @@
         </section>
 
         <!-- Contact Section -->
-        <!-- RESPONSIVE FIX: Adjusted vertical padding -->
-        <section id="contact" class="py-20 sm:py-24 lg:py-32 px-6 bg-slate-100 dark:bg-slate-900 animated-section">
-            <div class="container mx-auto text-center">
+        <!-- RESPONSIVE FIX: Adjusted vertical padding for all devices -->
+        <section id="contact" class="py-20 sm:py-24 lg:py-32 bg-slate-100 dark:bg-slate-900 animated-section">
+            <div class="container mx-auto px-4 sm:px-6 text-center">
                 <!-- RESPONSIVE FIX: Adjusted bottom margin on heading -->
                 <h2 class="text-4xl font-bold text-center mb-12 md:mb-16 gradient-text animated-item">Get In Touch</h2>
                 <p class="mb-10 max-w-2xl mx-auto text-slate-600 dark:text-slate-400 text-lg animated-item">I'm
@@ -441,8 +314,9 @@
                         class="inline-block bg-gradient-to-r from-sky-500 to-indigo-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-all duration-300 ease-out hover:scale-105 hover:-translate-y-0.5 hover:shadow-[0_10px_20px_-10px_rgba(79,70,229,0.4)] active:scale-95">Say
                         Hello</a>
                 </div>
+                <!-- RESPONSIVE FIX: Stack links on mobile, row on larger screens, adjusted gap and top margin -->
                 <div
-                    class="mt-16 flex flex-col sm:flex-row items-center justify-center gap-8 text-slate-500 dark:text-slate-400 animated-item">
+                    class="mt-16 flex flex-col sm:flex-row items-center justify-center gap-y-6 gap-x-8 text-slate-500 dark:text-slate-400 animated-item">
                     <a href="https://www.linkedin.com/in/towhidul-islam01/" target="_blank" rel="noopener noreferrer"
                         class="group flex items-center text-lg hover:text-indigo-500 dark:hover:text-indigo-400 transition-all duration-300 hover:-translate-y-0.5">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -472,7 +346,8 @@
     </main>
 
     <footer class="py-8 bg-slate-50 dark:bg-black border-t border-slate-200 dark:border-slate-800">
-        <div class="container mx-auto px-6">
+        <div class="container mx-auto px-4 sm:px-6">
+            <!-- RESPONSIVE FIX: Stacks on mobile, row on larger screens. Better gap handling. -->
             <div
                 class="flex flex-col sm:flex-row items-center justify-center gap-x-6 gap-y-2 text-center text-sm text-slate-500 dark:text-slate-400">
                 <p id="copyright-year">© 2025 Towhidul Islam</p> <!-- Added ID for JS targeting -->
@@ -485,6 +360,7 @@
 
     <!-- Project Modal: A popup for displaying detailed project information -->
     <div id="project-modal-overlay" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[99] hidden opacity-0"></div>
+    <!-- RESPONSIVE FIX: Added padding (p-4) to ensure content doesn't touch screen edges on mobile -->
     <div id="project-modal" class="fixed inset-0 z-[100] flex items-center justify-center p-4 hidden">
         <div id="project-modal-content"
             class="bg-white dark:bg-slate-900 rounded-xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto p-6 md:p-8 relative border border-slate-200 dark:border-slate-800 opacity-0 transform scale-95">
@@ -512,7 +388,14 @@
                 { id: 5, title: "Automotive Sales Dashboard", shortDescription: "An in-depth analysis of car sales data, creating various visualizations and a dashboard using Microsoft Excel.", imageUrl: "https://dm0qx8t0i9gc9.cloudfront.net/thumbnails/video/Vyh-jcp/videoblocks-animation-of-blue-futuristic-electric-car-blueprint-concept-car-design-3d-render-the-clip-is-loopable_bj71dibkg_thumbnail-1080_01.png", technologies: ["Microsoft Excel", "Data Visualization", "Dashboarding"], longDescription: "This project involves an in-depth analysis of car sales data, focusing on creating various visualizations and a dashboard using Microsoft Excel for the Web. The project aims to provide a clear understanding of car sales and profits across different dealer IDs, models, and timeframes. Visualizations include quantity sold by dealer, profit by date and model, and profit by year, all derived from pivot tables and organized across several sheets within the Excel workbook.", githubLink: "https://github.com/T0wh1dul/Automotive-Sales-Dashboard" }
             ];
 
-            const TOP_SKILLS = ["SQL & Data Transformation", "Power BI & Tableau", "Python (Pandas)", "Business & Financial Analysis", "IBM Cognos Analytics"];
+            // --- UPDATED TOP SKILLS ---
+            const TOP_SKILLS = [
+                "Strategic Business Analysis",
+                "Financial Data Modeling",
+                "BI & Dashboard Development",
+                "Data Integrity & Transformation",
+                "Insight Communication & Storytelling"
+            ];
 
             // --- DOM ELEMENT SELECTORS ---
             const themeToggleButton = document.getElementById('theme-toggle');
@@ -542,7 +425,7 @@
                     if (themeToggleButton) themeToggleButton.innerHTML = ICONS.moon;
                 }
             }
-            
+
             /**
              * Toggles the visibility of the mobile navigation menu.
              */
@@ -636,13 +519,12 @@
                     modal.classList.add('hidden');
                 }, 300);
             }
-            
+
             /**
              * Sets up IntersectionObserver for scroll-triggered animations.
              */
             function setupScrollAnimations() {
                 const animatedSections = document.querySelectorAll('.animated-section');
-                // Fallback for browsers that don't support IntersectionObserver
                 if (typeof IntersectionObserver === 'undefined') {
                     animatedSections.forEach(el => el.classList.add('visible'));
                     document.querySelectorAll('.animated-item').forEach(el => {
@@ -658,7 +540,7 @@
                             entry.target.classList.add('visible');
                         }
                     });
-                }, { threshold: 0.15 }); 
+                }, { threshold: 0.15 });
                 animatedSections.forEach(el => observer.observe(el));
             }
 
@@ -722,7 +604,7 @@
                     }
                 });
             }
-            
+
             /**
              * Initializes the entire page script.
              */
